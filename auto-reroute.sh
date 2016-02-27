@@ -60,23 +60,23 @@ reroute_log=/tmp/$(openssl rand -hex 10)
 ############################
 #
 #
-function reroute_check {
-ext_IP=$(curl -4 -s https://network.feral.io/reroute | grep "Your IPv4 address is" | sed 's/<\/p>//g' | awk '{print $NF}')
-route_set=0
-while [ $route_set = 0 ]; do
-route_set=$(curl -4 -s "https://network.feral.io/looking-glass?action=traceroute&host=$ext_IP" | grep -c "$(curl -4 -s https://network.feral.io/reroute | grep checked | awk '{print $(NF-1)}' | sed 's|value=||g' | sed 's/"//g')")
-done
-echo Route has been set.
-}
+##function reroute_check {
+##ext_IP=$(curl -4 -s https://network.feral.io/reroute | grep "Your IPv4 address is" | sed 's/<\/p>//g' | awk '{print $NF}')
+##route_set=0
+##while [ $route_set = 0 ]; do
+##route_set=$(curl -4 -s "https://network.feral.io/looking-glass?action=traceroute&host=$ext_IP" | grep -c "$(curl -4 -s https://network.feral.io/reroute | grep checked | awk '{print $(NF-1)}' | sed 's|value=||g' | sed 's/"//g')")
+##done
+##echo Route has been set.
+##}
 
 function error_exit {
 rm -f $reroute_log
 exit 1
 }
 
-function requested_route_check {
-curl -4 -s https://network.feral.io/reroute | grep checked | grep -o -P 'value=".{0,15}' | awk '{print $1}' | sed 's/value="//g' | sed 's/"//g' | sed 's/>//g'
-}
+##function requested_route_check {
+##curl -4 -s https://network.feral.io/reroute | grep checked | grep -o -P 'value=".{0,15}' | awk '{print $1}' | sed 's/value="//g' | sed 's/"//g' | sed 's/>//g'
+##}
 ############################
 ####### Functions End ######
 ############################
@@ -91,31 +91,31 @@ command -v curl >/dev/null 2>&1 || { echo >&2 "This script requires curl but it'
 command -v bc >/dev/null 2>&1 || { echo >&2 "This script requires bc but it's not installed.  Aborting."; exit 1; }
 command -v openssl >/dev/null 2>&1 || { echo >&2 "This script requires openssl but it's not installed.  Aborting."; exit 1; }
 #
-if [ "$(curl -s https://network.feral.io/reroute | head -2 | grep -c 502)" = "1" ]; then
-	echo "The Feral reroute tool is unavailable at this time."
-	error_exit
-fi
+##if [ "$(curl -s https://network.feral.io/reroute | head -2 | grep -c 502)" = "1" ]; then
+	##echo "The Feral reroute tool is unavailable at this time."
+	##error_exit
+##fi
 #
 #
 
-mkdir -p ~/.auto-reroute
-if [ $(curl -4 -s https://network.feral.io/reroute | grep checked | grep -c 0.0.0.0) = 0  ]; then
-	echo "Starting off by setting route to default to ensure accurate results."
-	old_route=$(curl -4 -s https://network.feral.io/reroute | grep checked | awk '{print $(NF-1)}' | sed 's|value=||g' | sed 's/"//g')
-	timeout 10 curl -4 'https://network.feral.io/reroute' --data "nh=0.0.0.0" >/dev/null 2>&1
-	if [ $? = 124  ]; then
-		echo "there seems to be an issue with the reroute page..."
-		error_exit
-	fi
-	echo "Waiting for route change to take effect..."
-	ext_IP=$(curl -4 -s https://network.feral.io/reroute | grep "Your IPv4 address is" | sed 's/<\/p>//g' | awk '{print $NF}')
-	route_set=1
-	while [ $route_set = 1 ]; do
-	route_set=$(curl -4 -s "https://network.feral.io/looking-glass?action=traceroute&host=$ext_IP" | grep -c "$old_route")
-	done
-else
-	echo "You are currently using the default route"
-fi
+##mkdir -p ~/.auto-reroute
+##if [ $(curl -4 -s https://network.feral.io/reroute | grep checked | grep -c 0.0.0.0) = 0  ]; then
+	##echo "Starting off by setting route to default to ensure accurate results."
+	##old_route=$(curl -4 -s https://network.feral.io/reroute | grep checked | awk '{print $(NF-1)}' | sed 's|value=||g' | sed 's/"//g')
+	##timeout 10 curl -4 'https://network.feral.io/reroute' --data "nh=0.0.0.0" >/dev/null 2>&1
+	##3if [ $? = 124  ]; then
+		##echo "there seems to be an issue with the reroute page..."
+		##error_exit
+	##fi
+	##echo "Waiting for route change to take effect..."
+	##ext_IP=$(curl -4 -s https://network.feral.io/reroute | grep "Your IPv4 address is" | sed 's/<\/p>//g' | awk '{print $NF}')
+	##route_set=1
+	##while [ $route_set = 1 ]; do
+	##route_set=$(curl -4 -s "https://network.feral.io/looking-glass?action=traceroute&host=$ext_IP" | grep -c "$old_route")
+	##done
+##else
+	##echo "You are currently using the default route"
+##fi
 #
 	for i in "${routes[@]}"
 	do
@@ -142,14 +142,14 @@ fi
 	fastestspeed=$(sort -gr $reroute_log | head -n 1 | awk '{print $1}')
 	fastestroutename=$(sort -gr $reroute_log | head -n 1 | awk '{print $4}')
 	#
-	echo -e "Routing through $fastestroutename provided the highest speed of $fastestspeed Mbit/s"
-	if [ $fastestroute = "0.0.0.0" ]; then
-		echo "No need to change routes, as the Default was chosen at the beginning of this test."
-	else
-		echo "Setting route to $fastestroutename / $fastestroute ..."
-		curl -4 'https://network.feral.io/reroute' --data "nh=$fastestroute" >/dev/null 2>&1
-		echo "Waiting for route change to take effect..."
-		reroute_check
+	##echo -e "Routing through $fastestroutename provided the highest speed of $fastestspeed Mbit/s"
+	##if [ $fastestroute = "0.0.0.0" ]; then
+		##echo "No need to change routes, as the Default was chosen at the beginning of this test."
+	##else
+		##echo "Setting route to $fastestroutename / $fastestroute ..."
+		##curl -4 'https://network.feral.io/reroute' --data "nh=$fastestroute" >/dev/null 2>&1
+		##echo "Waiting for route change to take effect..."
+		##reroute_check
 	fi
 	sed -i 's/ /, /g' $reroute_log
 	sed -i "s/^/$(date -u), /g" $reroute_log
