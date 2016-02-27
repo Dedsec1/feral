@@ -19,10 +19,10 @@ scriptname="auto-reroute"
 ##### Script Notes End #####
 ############################
 # I didn't know where to put this as i didnt want to put it with the bulk of the script, and i wanted it checked early
-if [ "$(hostname -f | awk -F. '{print $2;}')" == "feralhosting" ]; then
-	echo -e "\033[31m""it looks like you are trying to run this from a Feral slot, it is meant to be run from your home network""\e[0m"
-	exit
-fi
+##if [ "$(hostname -f | awk -F. '{print $2;}')" == "feralhosting" ]; then
+	##echo -e "\033[31m""it looks like you are trying to run this from a Feral slot, it is meant to be run from your home network""\e[0m"
+	##exit
+##fi
 #
 ############################
 ## Version History Starts ##
