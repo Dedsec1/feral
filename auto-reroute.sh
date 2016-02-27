@@ -150,7 +150,6 @@ command -v openssl >/dev/null 2>&1 || { echo >&2 "This script requires openssl b
 		##curl -4 'https://network.feral.io/reroute' --data "nh=$fastestroute" >/dev/null 2>&1
 		##echo "Waiting for route change to take effect..."
 		##reroute_check
-	fi
 	sed -i 's/ /, /g' $reroute_log
 	sed -i "s/^/$(date -u), /g" $reroute_log
 	cat $reroute_log >> ~/.auto-reroute/auto-reroute.log
