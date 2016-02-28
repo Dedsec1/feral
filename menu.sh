@@ -336,7 +336,6 @@ do
             ;;
         "3")
            wget -qO ~/feral-hostname-ip.sh https://git.io/v2aZ6 && bash ~/feral-hostname-ip.sh
-           break
             ;;
         "4")
            wget -qO ~/restart.sh https://git.io/v2afh && bash ~/restart.sh
