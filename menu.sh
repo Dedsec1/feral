@@ -304,9 +304,9 @@ if [[ "$updatestatus" = "y" ]]
 then
     :
 else
-    echo -e "Hello $(whoami), you have the latest version of the" "\033[36m""$scriptname""\e[0m" "script. This script version is:" "\033[31m""$scriptversion""\e[0m"
+    echo -e "" "\033[36m""""\e[0m" "" "\033[31m""""\e[0m"
     echo
-    read -ep "The script has been updated, enter [y] to continue or [q] to exit: " -i "y" updatestatus
+    read -ep "" -i "" updatestatus
     echo
 fi
 #
