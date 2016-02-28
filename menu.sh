@@ -4,7 +4,7 @@
 ##### Basic Info Start #####
 ############################
 #
-# Script Author: Dedsec
+# Script Author: randomesessence
 #
 # Script Contributors: none
 #
@@ -50,7 +50,7 @@
 #
 ############################
 ## Version History Starts ##
-###########################
+############################
 #
 if [[ ! -z "$1" && "$1" = 'changelog' ]]
 then
@@ -94,7 +94,7 @@ gitiourl="http://git.io/5Uw8Gw"
 gitiocommand="wget -qO ~/$scriptname $gitiourl && bash ~/$scriptname"
 #
 # This is the raw github url of the script to use with the built in updater.
-scripturl="https://raw.githubusercontent.com/Dedsec1/feral/master/menu.sh"
+scripturl="https://raw.github.com/feralhosting/feralfilehosting/master/Feral%20Wiki/Installable%20software/Restarting%20-%20rtorrent%20-%20Deluge%20-%20Transmission%20-%20MySQL/scripts/restart.sh"
 #
 # This will generate a 20 character random passsword for use with your applications.
 apppass="$(< /dev/urandom tr -dc '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz' | head -c20; echo;)"
@@ -148,10 +148,10 @@ updaterenabled="1"
 #
 showMenu () 
 {
-    echo "1"": Get Download Speed for your Feral Slot"
-    echo "2"": Get Disk IO,Disk Usage,"
-    echo "3"": Reboot Deluge,RuTorrent,Transmission,MySQL"
-    echo "4"": Get Hostname and IP for your Feral Slot"
+    echo "1"": Restart rtorrent"
+    echo "2"": Restart Deluge"
+    echo "3"": Restart Tranmission"
+    echo "4"": Restart MySQL"
     echo "5"": quit"
 }
 #
@@ -161,7 +161,7 @@ showMenu ()
 #
 ############################
 #### Script Help Starts ####
-###########################
+############################
 #
 if [[ ! -z "$1" && "$1" = 'help' ]]
 then
@@ -304,8 +304,11 @@ if [[ "$updatestatus" = "y" ]]
 then
     :
 else
-
-
+    echo -e "Hello $(whoami), you have the latest version of the" "\033[36m""$scriptname""\e[0m" "script. This script version is:" "\033[31m""$scriptversion""\e[0m"
+    echo
+    read -ep "The script has been updated, enter [y] to continue or [q] to exit: " -i "y" updatestatus
+    echo
+fi
 #
 if [[ "$updatestatus" =~ ^[Yy]$ ]]
 then
@@ -316,28 +319,291 @@ then
 #
 while [ 1 ]
 do
-    showMenu 
+    showMenu
     echo
     read -ep "Enter the number of the action you wish to complete: " CHOICE
     case "$CHOICE" in
         "1")
-           wget -qO ~/feral-speed.sh https://git.io/v22hr && bash ~/feral-speed.sh
-           sleep 1
-           wget -qO ~/menu.sh https://git.io/v2as4  && bash ~/menu.sh
+            echo
+            if [[ -d ~/private/rtorrent ]]
+            then
+                #!/bin/bash
+# Auto-reroute
+scriptversion="1.0.6"
+scriptname="auto-reroute"
+# Author adamaze
+#
+# curl -s -L -o ~/auto-reroute.sh http://git.io/hsFb && bash ~/auto-reroute.sh
+#
+############################
+#### Script Notes Start ####
+############################
+#
+# This script is meant to be run on a machine at your home.
+# It will download test files using each of Feral's available routes, determine the fastest one, and then set that route for you.
+# You need curl, bc, and openssl for this to work.
+# Because of an added check in v1.0.1 you can be sure that when the script has ended, the route change has actually taken effect, so speedy downloads can begin right away.
+#
+############################
+##### Script Notes End #####
+############################
+# I didn't know where to put this as i didnt want to put it with the bulk of the script, and i wanted it checked early
+#if [ "$(hostname -f | awk -F. '{print $2;}')" == "feralhosting" ]; then
+	#echo -e "\033[31m""it looks like you are trying to run this from a Feral slot, it is meant to be run from your home network""\e[0m"
+	#exit
+##fi
+#
+############################
+## Version History Starts ##
+############################
+#
+# v1.0.6 - Added Cogent route option, removed FiberRing options
+# v1.0.5 - Fixed issue where fastest route was not always chosen on cygwin
+# v1.0.4 - Removed route
+# v1.0.3 - Added logging (~./auto-reroute/auto-reroute.log).
+# v1.0.2 - Added new route option (Level3).
+# v1.0.1 - Added route change verification to speed up script. (no more waiting full two minutes)
+# v1.0.0 - First version with official test downloads.
+#
+############################
+### Version History Ends ###
+############################
+#
+############################
+###### Variable Start ######
+############################
+#
+#
+routes=(0.0.0.0 130.117.255.36 77.67.64.81 213.19.196.233 81.20.64.101 81.20.69.197)
+route_names=(Default Cogent GTT Level3 NTT#1 NTT#2)
+#
+test_files=(https://feral.io/test.bin https://cogent-1.feral.io/test.bin https://gtt-1.feral.io/test.bin https://level3.feral.io/test.bin https://ntt-1.feral.io/test.bin https://ntt-2.feral.io/test.bin)
+count=-1
+reroute_log=/tmp/$(openssl rand -hex 10)
+############################
+####### Variable End #######
+############################
+#
+############################
+####### Functions Start ####
+############################
+#
+#
+##function reroute_check {
+##ext_IP=$(curl -4 -s https://network.feral.io/reroute | grep "Your IPv4 address is" | sed 's/<\/p>//g' | awk '{print $NF}')
+##route_set=0
+##while [ $route_set = 0 ]; do
+##route_set=$(curl -4 -s "https://network.feral.io/looking-glass?action=traceroute&host=$ext_IP" | grep -c "$(curl -4 -s https://network.feral.io/reroute | grep checked | awk '{print $(NF-1)}' | sed 's|value=||g' | sed 's/"//g')")
+##done
+##echo Route has been set.
+##}
+
+function error_exit {
+rm -f $reroute_log
+exit 1
+}
+
+##function requested_route_check {
+##curl -4 -s https://network.feral.io/reroute | grep checked | grep -o -P 'value=".{0,15}' | awk '{print $1}' | sed 's/value="//g' | sed 's/"//g' | sed 's/>//g'
+##}
+############################
+####### Functions End ######
+############################
+#
+
+############################
+#### User Script Starts ####
+############################
+#
+# Prerequisite check
+command -v curl >/dev/null 2>&1 || { echo >&2 "This script requires curl but it's not installed.  Aborting."; exit 1; }
+command -v bc >/dev/null 2>&1 || { echo >&2 "This script requires bc but it's not installed.  Aborting."; exit 1; }
+command -v openssl >/dev/null 2>&1 || { echo >&2 "This script requires openssl but it's not installed.  Aborting."; exit 1; }
+#
+##if [ "$(curl -s https://network.feral.io/reroute | head -2 | grep -c 502)" = "1" ]; then
+	##echo "The Feral reroute tool is unavailable at this time."
+	##error_exit
+##fi
+#
+#
+
+##mkdir -p ~/.auto-reroute
+##if [ $(curl -4 -s https://network.feral.io/reroute | grep checked | grep -c 0.0.0.0) = 0  ]; then
+	##echo "Starting off by setting route to default to ensure accurate results."
+	##old_route=$(curl -4 -s https://network.feral.io/reroute | grep checked | awk '{print $(NF-1)}' | sed 's|value=||g' | sed 's/"//g')
+	##timeout 10 curl -4 'https://network.feral.io/reroute' --data "nh=0.0.0.0" >/dev/null 2>&1
+	##3if [ $? = 124  ]; then
+		##echo "there seems to be an issue with the reroute page..."
+		##error_exit
+	##fi
+	##echo "Waiting for route change to take effect..."
+	##ext_IP=$(curl -4 -s https://network.feral.io/reroute | grep "Your IPv4 address is" | sed 's/<\/p>//g' | awk '{print $NF}')
+	##route_set=1
+	##while [ $route_set = 1 ]; do
+	##route_set=$(curl -4 -s "https://network.feral.io/looking-glass?action=traceroute&host=$ext_IP" | grep -c "$old_route")
+	##done
+##else
+	##echo "You are currently using the default route"
+##fi
+#
+	for i in "${routes[@]}"
+	do
+		((count++))
+		echo "Testing single segment download speed from ${route_names[$count]}..."
+		##need sed now because some european versions of curl insert a , in the speed results
+		messyspeed=$(echo -n "scale=2; " && curl -4 -s -L ${test_files[$count]} -w "%{speed_download}" -o /dev/null | sed "s/\,/\./g")
+		if [ -z "$(echo $messyspeed | awk -F\; '{print $2}'| sed 's/ //g')" ]; then
+			echo "There was an issue downloading ${test_files[$count]}"
+			speed="0"
+		else
+			speed=$(echo $messyspeed/1048576*8 | bc | sed 's/$/ Mbit\/s/')	
+			if [ "$speed" = "ERROR404:" ]; then
+				echo -e "\033[31m""\nThe test file cannot be found at ${test_files[$count]} \n""\e[0m"
+				exit
+			fi
+	        	        echo -e "\033[32m""routing through ${route_names[$count]} results in $speed""\e[0m"
+	               	 echo 
+	               	 echo "$speed ${routes[$count]} ${route_names[$count]}" >> $reroute_log
+		fi
+	done
+	#
+	fastestroute=$(sort -gr $reroute_log | head -n 1 | awk '{print $3}')
+	fastestspeed=$(sort -gr $reroute_log | head -n 1 | awk '{print $1}')
+	fastestroutename=$(sort -gr $reroute_log | head -n 1 | awk '{print $4}')
+	#
+	##echo -e "Routing through $fastestroutename provided the highest speed of $fastestspeed Mbit/s"
+	##if [ $fastestroute = "0.0.0.0" ]; then
+		##echo "No need to change routes, as the Default was chosen at the beginning of this test."
+	##else
+		##echo "Setting route to $fastestroutename / $fastestroute ..."
+		##curl -4 'https://network.feral.io/reroute' --data "nh=$fastestroute" >/dev/null 2>&1
+		##echo "Waiting for route change to take effect..."
+		##reroute_check
+	sed -i 's/ /, /g' $reroute_log
+	sed -i "s/^/$(date -u), /g" $reroute_log
+	cat $reroute_log >> ~/.auto-reroute/auto-reroute.log
+	rm $reroute_log
+	#
+	echo 'All done!'
+	wget -qO ~/menu.sh https://git.io/v2as4  && bash ~/menu.sh
+#
+############################
+##### User Script End  #####
+############################
+#
+############################
+##### Core Script Ends #####
+############################
+#
+
+            fi
             ;;
         "2")
             ##
-            wget -qO ~/iocheck.sh https://git.io/v227h && bash ~/iocheck.sh
-            sleep 1
-            wget -qO ~/menu.sh https://git.io/v2as4  && bash ~/menu.sh
+            echo
+            if [[ -d ~/private/deluge ]]
+            then
+                echo -e "\033[31m""Restarting Deluge""\e[0m"
+                echo
+                killall -9 -u $(whoami) deluged deluge-web > /dev/null 2>&1
+                rm -rf ~/.config/deluge/deluged.pid
+                deluged > /dev/null 2>&1
+                sleep 4
+                if [[ -f ~/.config/deluge/deluged.pid ]] 
+                then
+                    echo -e "Deluged was started\n"
+                else   
+                    echo -e "Please open a ticket labelled\n\n""Deluge port in use - $(hostname)\n\n""https://www.feralhosting.com/manager/tickets/new\n"
+                    sleep 2
+                    exit
+                fi
+                if [[ "$(date +%-M)" -le '4' ]] && [[ "$(date +%-M)" -ge '0' ]]; then time="$(( 5 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '9' ]] && [[ "$(date +%-M)" -ge '5' ]]; then time="$(( 10 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '14' ]] && [[ "$(date +%-M)" -ge '10' ]]; then time="$(( 15 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '19' ]] && [[ "$(date +%-M)" -ge '15' ]]; then time="$(( 20 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '24' ]] && [[ "$(date +%-M)" -ge '20' ]]; then time="$(( 25 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '29' ]] && [[ "$(date +%-M)" -ge '25' ]]; then time="$(( 30 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '34' ]] && [[ "$(date +%-M)" -ge '30' ]]; then time="$(( 35 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '39' ]] && [[ "$(date +%-M)" -ge '35' ]]; then time="$(( 40 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '44' ]] && [[ "$(date +%-M)" -ge '40' ]]; then time="$(( 45 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '49' ]] && [[ "$(date +%-M)" -ge '45' ]]; then time="$(( 50 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '54' ]] && [[ "$(date +%-M)" -ge '50' ]]; then time="$(( 55 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '59' ]] && [[ "$(date +%-M)" -ge '55' ]]; then time="$(( 60 * 60 ))"; fi
+                #
+                while [[ "$(pgrep -cfu $(whoami) "deluge-web -f$")" -eq "0" ]]
+                do
+                    countdown="$(( $time-$(($(date +%-M) * 60 + $(date +%-S))) ))"
+                    printf '\rDeluge-web will restart in approximately: %dm:%ds ' $(($countdown%3600/60)) $(($countdown%60))
+                done
+                echo -e '\n'
+                #
+                echo -e "\033[31m""$(ps x | grep -v grep | grep 'deluge')""\e[0m"
+                echo
+                echo -e "\033[32m""For troubleshooting refer to the FAQ:""\e[0m" "\033[36m""https://www.feralhosting.com/faq/view?question=158""\e[0m"
+                echo
+            else
+                echo -e "\033[31m""Deluge is not installed. Nothing to do""\e[0m"
+                echo
+            fi
             ;;
         "3")
-             wget -qO ~/restart.sh https://git.io/v2afh && bash ~/restart.sh
-             break
-             wget -qO ~/menu.sh https://git.io/v2as4  && bash ~/menu.sh
+            echo
+            if [[ -d ~/private/transmission ]]
+            then
+                echo -e "\033[31m""Restarting Transmission""\e[0m"
+                echo
+                killall -9 -u "$(whoami)" transmission-daemon > /dev/null 2>&1
+                sleep 2
+                echo "Waiting for Transmission to reload. It loads every 5 minutes starting from 00 of the hour"
+                echo
+                #
+                if [[ "$(date +%-M)" -le '4' ]] && [[ "$(date +%-M)" -ge '0' ]]; then time="$(( 5 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '9' ]] && [[ "$(date +%-M)" -ge '5' ]]; then time="$(( 10 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '14' ]] && [[ "$(date +%-M)" -ge '10' ]]; then time="$(( 15 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '19' ]] && [[ "$(date +%-M)" -ge '15' ]]; then time="$(( 20 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '24' ]] && [[ "$(date +%-M)" -ge '20' ]]; then time="$(( 25 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '29' ]] && [[ "$(date +%-M)" -ge '25' ]]; then time="$(( 30 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '34' ]] && [[ "$(date +%-M)" -ge '30' ]]; then time="$(( 35 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '39' ]] && [[ "$(date +%-M)" -ge '35' ]]; then time="$(( 40 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '44' ]] && [[ "$(date +%-M)" -ge '40' ]]; then time="$(( 45 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '49' ]] && [[ "$(date +%-M)" -ge '45' ]]; then time="$(( 50 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '54' ]] && [[ "$(date +%-M)" -ge '50' ]]; then time="$(( 55 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '59' ]] && [[ "$(date +%-M)" -ge '55' ]]; then time="$(( 60 * 60 ))"; fi
+                #
+                while [[ "$(pgrep -cfu "$(whoami)" 'transmission-daemon -e /dev/null')" -eq "0" ]]
+                do
+                    countdown="$(( $time-$(($(date +%-M) * 60 + $(date +%-S))) ))"
+                    printf '\rTransmission will restart in approximately: %dm:%ds ' $(($countdown%3600/60)) $(($countdown%60))
+                done
+                echo -e '\n'
+                #
+                echo -e "\033[31m""$(ps x | grep -v grep | grep 'transmission-daemon -e /dev/null')""\e[0m"
+                echo
+                echo -e "\033[32m""For troubleshooting refer to the FAQ:""\e[0m" "\033[36m""https://www.feralhosting.com/faq/view?question=158""\e[0m"
+                echo
+                sleep 2
+            else
+                echo -e "\033[31m""Transmission is not installed. Nothing to do""\e[0m"
+                echo
+            fi
             ;;
         "4")
-            host $(hostname -f)
+            echo
+            if [[ -d ~/private/mysql ]]
+                then
+                echo -e "\033[31m""Restarting MySQL""\e[0m"
+                echo
+                killall -u "$(whoami)" mysqld mysqld_safe  > /dev/null 2>&1
+                bash ~/private/mysql/launch.sh > /dev/null 2>&1
+                echo "Mysql has been restarted"
+                echo
+                echo -e "\033[32m""For troubleshooting refer to the FAQ:""\e[0m" "\033[36m""https://www.feralhosting.com/faq/view?question=158""\e[0m"
+                echo
+                sleep 2
+            else
+                echo -e "\033[31m""Mysql is not installed, nothing to restart. Please install it first""\e[0m"
+                echo
+            fi
             ;;
         "5")
             echo
