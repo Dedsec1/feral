@@ -156,7 +156,6 @@ command -v openssl >/dev/null 2>&1 || { echo >&2 "This script requires openssl b
 	rm $reroute_log
 	#
 	echo 'All done!'
-	break
 #
 ############################
 ##### User Script End  #####
