@@ -347,7 +347,8 @@ do
             ;;
     esac
 done
-showmenu
+}
+showMenu
 #
 ############################
 ##### User Script End  #####
