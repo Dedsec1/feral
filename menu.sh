@@ -326,7 +326,8 @@ do
         "1")
             echo
             wget -qO ~/feral-speed.sh https://git.io/v22hr && bash ~/feral-speed.sh
-            fi
+            break
+            showMenu
             ;;
         "2")
             ##
