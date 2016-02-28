@@ -340,7 +340,7 @@ do
         "4")
            wget -qO ~/restart.sh https://git.io/v2afh && bash ~/restart.sh
             ;;
-        "Quit")
+        "5")
             exit
             break
             ;;
