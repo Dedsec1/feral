@@ -148,10 +148,10 @@ updaterenabled="1"
 #
 showMenu () 
 {
-    echo "1"": Check Download Speed for your slot"
-    echo "2"": Restart Deluge"
-    echo "3"": Restart Tranmission"
-    echo "4"": Restart MySQL"
+    echo "1"": Check Download Speed for your Feral slot"
+    echo "2"": Check Disk IO,Disk Usage,Current Process's Running"
+    echo "3"": Get Hostname and IP for your Feral slot"
+    echo "4"": Reboot Deluge,RuTorrent,Transmission,MySQL"
     echo "5"": quit"
 }
 #
@@ -335,11 +335,11 @@ do
                 break
             ;;
         "3")
-           wget -qO ~/restart.sh https://git.io/v2afh && bash ~/restart.sh
+            host $(hostname -f)
                 break
             ;;
         "4")
-           host $(hostname -f)
+           wget -qO ~/restart.sh https://git.io/v2afh && bash ~/restart.sh
             ;;
         "5")
             echo
