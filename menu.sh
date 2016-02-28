@@ -341,9 +341,6 @@ do
            wget -qO ~/restart.sh https://git.io/v2afh && bash ~/restart.sh
             ;;
         "5")
-            echo
-            echo -e "\033[31m""You chose to quit this script""\e[0m"
-            echo
             exit
             ;;
     esac
