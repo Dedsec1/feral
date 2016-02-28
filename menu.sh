@@ -4,7 +4,7 @@
 ##### Basic Info Start #####
 ############################
 #
-# Script Author: randomesessence
+# Script Author: Dedsec
 #
 # Script Contributors: none
 #
