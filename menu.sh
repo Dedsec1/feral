@@ -308,7 +308,7 @@ else
     #echo
     #read -ep "The script has been updated, enter [y] to continue or [q] to exit: " -i "y" updatestatus
     #echo
-#fi
+#
 #
 if [[ "$updatestatus" =~ ^[Yy]$ ]]
 then
