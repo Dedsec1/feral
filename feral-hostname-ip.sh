@@ -3,5 +3,14 @@
 ####Define Variables####
 ########################
 host $(hostname -f)
-done
+break
 wget -qO ~/menu.sh https://git.io/v2as4  && bash ~/menu.sh
+#
+############################
+##### User Script End  #####
+############################
+#
+############################
+##### Core Script Ends #####
+############################
+#
