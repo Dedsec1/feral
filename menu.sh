@@ -322,7 +322,6 @@ do
             ;;
         "3")
             host $(hostname -f)
-                break
             ;;
         "4")
            wget -qO ~/restart.sh https://git.io/v2afh && bash ~/restart.sh
