@@ -148,7 +148,7 @@ updaterenabled="1"
 #
 showMenu () 
 {
-    echo "1"": Restart rtorrent"
+    echo "1"": Check Download Speed for your slot"
     echo "2"": Restart Deluge"
     echo "3"": Restart Tranmission"
     echo "4"": Restart MySQL"
