@@ -4,13 +4,13 @@
 ##### Basic Info Start #####
 ###########################
 #
-# Script Author: Dedsec
+# Script Author: randomesessence
 #
 # Script Contributors: none
 #
 # Bash Command for easy reference:
 #
-# 
+# wget -qO ~/restart http://git.io/5Uw8Gw && bash ~/restart
 #
 # The MIT License (MIT)
 #
@@ -76,13 +76,13 @@ fi
 ############################
 #
 # Script Version number is set here.
-scriptversion="1.0"
+scriptversion="1.1.7"
 #
 # Script name goes here. Please prefix with install.
-scriptname="Rutorrent-Menu.sh"
+scriptname="restart"
 #
 # Author name goes here.
-scriptauthor="Dedsec"
+scriptauthor="randomessence"
 #
 # Contributor's names go here.
 contributors="None credited"
@@ -94,7 +94,7 @@ gitiourl="http://git.io/5Uw8Gw"
 gitiocommand="wget -qO ~/$scriptname $gitiourl && bash ~/$scriptname"
 #
 # This is the raw github url of the script to use with the built in updater.
-scripturl="https://raw.githubusercontent.com/Dedsec1/feral/master/Rutorrent-Menu.sh"
+scripturl="https://raw.githubusercontent.com/Dedsec1/feral/master/menu.sh"
 #
 # This will generate a 20 character random passsword for use with your applications.
 apppass="$(< /dev/urandom tr -dc '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz' | head -c20; echo;)"
@@ -148,13 +148,11 @@ updaterenabled="1"
 #
 showMenu () 
 {
-    echo "1"": Backup Rutorrent RSS Config "
-    echo "2"": Install Colored Ratio Plugin"
-    echo "3"": Install Colored Ratio Plugin (font is coloured instead the background)"
-    echo "4"": Install Feral Stat's Plugin"
-    echo "5"": Install Fileshare Plugin"
-    echo "6"": Install Mediashare Plugin"
-    echo """: quit"
+    echo "1"": Check Download Speed for your Feral slot"
+    echo "2"": Check Disk IO,Disk Usage,Current Process's Running"
+    echo "3"": Get Hostname and IP for your Feral slot"
+    echo "4"": Reboot Deluge,RuTorrent,Transmission,MySQL"
+    echo "5"": quit"
 }
 #
 ###########################
@@ -327,51 +325,27 @@ do
     case "$CHOICE" in
         "1")
             echo
-            rsync -avhPS ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/share/users/ ~/rssbackup
+            wget -qO ~/feral-speed.sh https://git.io/v22hr && bash ~/feral-speed.sh
             break
             
             ;;
         "2")
             ##
-            wget -qO ~/ratio.zip http://git.io/71cumA
-            unzip -qo ~/ratio.zip -d ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/
-            cd && rm -f ratio.zip
+            wget -qO ~/iocheck.sh https://git.io/v227h && bash ~/iocheck.sh
             break
             ;;
         "3")
-           cd ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/
-           wget -qO ratiocolor.zip http://git.io/PiSq_g && unzip -qo ratiocolor.zip
-           cp -rf rutorrent-ratiocolor-master/. ratiocolor && rm -rf rutorrent-ratiocolor-master ratiocolor.zip
-           cd
+           wget -qO ~/feral-hostname-ip.sh https://git.io/v2aZ6 && bash ~/feral-hostname-ip.sh
            break
             ;;
         "4")
-           cd ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/
-           wget -qO feralstats.zip http://git.io/nB1WyA
-           unzip -qo feralstats.zip && rm -f feralstats.zip
+           wget -qO ~/restart.sh https://git.io/v2afh && bash ~/restart.sh
            break
             ;;
         "5")
-           cd ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/
-           svn co -q http://svn.rutorrent.org/svn/filemanager/trunk/filemanager
-           svn co -q http://svn.rutorrent.org/svn/filemanager/trunk/fileshare
-           ln -s ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/fileshare/share.php ~/www/$(whoami).$(hostname -f)/public_html/
-           sed "/if(getConfFile(/d" -i ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/fileshare/share.php
-           sed "s|robits.org/rutorrent|$(whoami).$(hostname -f)|g" -i ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/fileshare/conf.php
-           break
-            ;;
-        "5")
-            cd ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/
-            svn co -q http://svn.rutorrent.org/svn/filemanager/trunk/mediastream
-            svn co -q http://svn.rutorrent.org/svn/filemanager/trunk/filemanager
-            mkdir ~/www/$(whoami).$(hostname -f)/public_html/stream
-            ln -s ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/mediastream/view.php ~/www/$(whoami).$(hostname -f)/public_html/stream/
-            ;;
-        "6")
-            quit
+            exit
             break
             ;;
-            
     esac
 done
 #
