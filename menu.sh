@@ -350,7 +350,6 @@ do
             ;;
     esac
 done
-showMenu
 #
 ############################
 ##### User Script End  #####
