@@ -94,7 +94,7 @@ gitiourl="http://git.io/5Uw8Gw"
 gitiocommand="wget -qO ~/$scriptname $gitiourl && bash ~/$scriptname"
 #
 # This is the raw github url of the script to use with the built in updater.
-scripturl="https://raw.githubusercontent.com/Dedsec1/feral/master/Rutorrent%20Menu.sh"
+scripturl="https://raw.githubusercontent.com/Dedsec1/feral/master/Rutorrent-Menu.sh"
 #
 # This will generate a 20 character random passsword for use with your applications.
 apppass="$(< /dev/urandom tr -dc '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz' | head -c20; echo;)"
