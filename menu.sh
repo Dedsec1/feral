@@ -325,7 +325,7 @@ do
     case "$CHOICE" in
         "1")
            wget -qO ~/feral-speed.sh https://git.io/v22hr && bash ~/feral-speed.sh
-           break
+           showMenu
             ;;
         "2")
             ##
