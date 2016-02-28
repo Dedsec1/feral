@@ -3,5 +3,4 @@
 ####Define Variables####
 ########################
 host $(hostname -f)
-break
 #
