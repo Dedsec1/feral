@@ -2,6 +2,6 @@
 ########################
 ####Define Variables####
 ########################
-echo  host $(hostname -f)
-wget -qO ~/Toolkit.sh https://git.io/v2anV  && bash ~/Toolkit.sh
+host $(hostname -f)
+wget -qO ~/test.sh https://git.io/v2anV  && bash ~/test.sh
 #
