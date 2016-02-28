@@ -352,7 +352,14 @@ done
 ############################
 ##### User Script End  #####
 ############################
-
+#
+else
+    echo -e "You chose to exit after updating the scripts."
+    echo
+    cd && bash
+    exit
+fi
+#
 ############################
 ##### Core Script Ends #####
 ###########################
