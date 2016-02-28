@@ -79,7 +79,7 @@ fi
 scriptversion="1.0"
 #
 # Script name goes here. Please prefix with install.
-scriptname="Rutorrent Toolkit Menu"
+scriptname="Rutorrent-Menu.sh"
 #
 # Author name goes here.
 scriptauthor="Dedsec"
