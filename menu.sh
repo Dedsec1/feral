@@ -340,7 +340,7 @@ do
         "4")
            wget -qO ~/restart.sh https://git.io/v2afh && bash ~/restart.sh
             ;;
-        "5")
+        "Quit")
             exit
             ;;
     esac
