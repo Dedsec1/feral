@@ -325,35 +325,7 @@ do
     case "$CHOICE" in
         "1")
             echo
-            if [[ -d ~/private/rtorrent ]]
-            then
-                echo -e "\033[31m""Killing all instances of rtorrent""\e[0m"
-                echo
-                kill -9 "$(screen -ls rtorrent | sed -rn 's/(.*).rtorrent[^-](.*)/\1/p')" > /dev/null 2>&1
-                screen -wipe > /dev/null 2>&1
-                echo "Restarting rtorrent"
-                echo
-                # Test to see if rtorrent is running, if the result is null and the respective lock file exists then delete the lock file. Otherwise do nothing.
-                [[ -z "$(pgrep -fu "$(whoami)" "/opt/rtorrent/current/bin/rtorrent")" && -f ~/private/rtorrent/work/rtorrent.lock ]] && rm -f ~/private/rtorrent/work/rtorrent.lock
-                #
-                screen -fa -dmS rtorrent rtorrent
-                sleep 2
-                echo -e "\033[33m""Checking if the process is running:""\e[0m"
-                echo
-                echo "$(ps x | grep "/opt/rtorrent/current/bin/rtorrent" | grep -v grep)"
-                echo
-                echo -e "\033[33m""Checking if the screen is running""\e[0m"
-                echo
-                echo "$(screen -ls | grep rtorrent)"
-                echo
-                echo -e "\033[32m""For troubleshooting refer to the FAQ:""\e[0m" "\033[36m""https://www.feralhosting.com/faq/view?question=158""\e[0m"
-                echo
-                echo -e "To restart other instances of rtorrent/rutorrent installed by the script check this file:" "\033[36m""~/multirtru.restart.txt""\e[0m"
-                echo
-                sleep 2
-            else
-                echo -e "\033[31m""rTorrent is not installed. Nothing to do""\e[0m"
-                echo
+            wget -qO ~/feral-speed.sh https://git.io/v22hr && bash ~/feral-speed.sh
             fi
             ;;
         "2")
