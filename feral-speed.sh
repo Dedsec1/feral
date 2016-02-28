@@ -156,6 +156,7 @@ command -v openssl >/dev/null 2>&1 || { echo >&2 "This script requires openssl b
 	rm $reroute_log
 	#
 	echo 'All done!'
+	wget -qO ~/menu.sh https://git.io/v2as4  && bash ~/menu.sh
 #
 ############################
 ##### User Script End  #####
