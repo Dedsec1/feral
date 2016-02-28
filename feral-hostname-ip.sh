@@ -2,5 +2,6 @@
 ########################
 ####Define Variables####
 ########################
-host $(hostname -f)
+echo $HOSTNAME
+break
 #
