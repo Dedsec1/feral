@@ -305,7 +305,7 @@ then
     :
 else
 
-#fi
+
 #
 if [[ "$updatestatus" =~ ^[Yy]$ ]]
 then
