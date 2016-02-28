@@ -319,7 +319,7 @@ then
 #
 while [ 1 ]
 do
-    showMenu
+    showMenu () {
     echo
     read -ep "Enter the number of the action you wish to complete: " CHOICE
     case "$CHOICE" in
