@@ -322,13 +322,13 @@ do
     case "$CHOICE" in
         "1")
            wget -qO ~/feral-speed.sh https://git.io/v22hr && bash ~/feral-speed.sh
-           break
+           sleep 1
            wget -qO ~/menu.sh https://git.io/v2as4  && bash ~/menu.sh
             ;;
         "2")
             ##
             wget -qO ~/iocheck.sh https://git.io/v227h && bash ~/iocheck.sh
-            break
+            sleep 1
             wget -qO ~/menu.sh https://git.io/v2as4  && bash ~/menu.sh
             ;;
         "3")
