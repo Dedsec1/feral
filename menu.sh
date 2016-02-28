@@ -136,7 +136,7 @@ gitissue="https://github.com/feralhosting/feralfilehosting/issues/new"
 ############################
 #
 # Disables the built in script updater permanently by setting this variable to 0.
-updaterenabled="0"
+updaterenabled="1"
 #
 ############################
 ####### Variable End #######
@@ -304,10 +304,10 @@ if [[ "$updatestatus" = "y" ]]
 then
     :
 else
-    echo -e "Hello $(whoami), you have the latest version of the" "\033[36m""$scriptname""\e[0m" "script. This script version is:" "\033[31m""$scriptversion""\e[0m"
-    echo
-    read -ep "The script has been updated, enter [y] to continue or [q] to exit: " -i "y" updatestatus
-    echo
+    #echo -e "Hello $(whoami), you have the latest version of the" "\033[36m""$scriptname""\e[0m" "script. This script version is:" "\033[31m""$scriptversion""\e[0m"
+    #echo
+    #read -ep "The script has been updated, enter [y] to continue or [q] to exit: " -i "y" updatestatus
+    #echo
 fi
 #
 if [[ "$updatestatus" =~ ^[Yy]$ ]]
