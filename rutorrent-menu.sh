@@ -12,7 +12,7 @@
 #
 # wget -qO ~/restart http://git.io/5Uw8Gw && bash ~/restart
 #
-# The MIT License (MIT)
+# The MIT License (MIT)#
 #
 # Copyright (c) 2016 randomessence
 #
