@@ -342,6 +342,7 @@ do
             ;;
         "Quit")
             exit
+            break
             ;;
     esac
 done
