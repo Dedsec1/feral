@@ -2,7 +2,7 @@
 #
 ############################
 ##### Basic Info Start #####
-###########################
+############################
 #
 # Script Author: randomesessence
 #
@@ -12,7 +12,7 @@
 #
 # wget -qO ~/restart http://git.io/5Uw8Gw && bash ~/restart
 #
-# The MIT License (MIT)#
+# The MIT License (MIT)
 #
 # Copyright (c) 2016 randomessence
 #
@@ -94,7 +94,7 @@ gitiourl="http://git.io/5Uw8Gw"
 gitiocommand="wget -qO ~/$scriptname $gitiourl && bash ~/$scriptname"
 #
 # This is the raw github url of the script to use with the built in updater.
-scripturl="https://raw.githubusercontent.com/Dedsec1/feral/master/menu.sh"
+scripturl="https://raw.github.com/feralhosting/feralfilehosting/master/Feral%20Wiki/Installable%20software/Restarting%20-%20rtorrent%20-%20Deluge%20-%20Transmission%20-%20MySQL/scripts/restart.sh"
 #
 # This will generate a 20 character random passsword for use with your applications.
 apppass="$(< /dev/urandom tr -dc '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz' | head -c20; echo;)"
@@ -148,14 +148,14 @@ updaterenabled="1"
 #
 showMenu () 
 {
-    echo "1"": Check Download Speed for your Feral slot"
-    echo "2"": Check Disk IO,Disk Usage,Current Process's Running"
-    echo "3"": Get Hostname and IP for your Feral slot"
-    echo "4"": Reboot Deluge,RuTorrent,Transmission,MySQL"
+    echo "1"": Restart rtorrent"
+    echo "2"": Restart Deluge"
+    echo "3"": Restart Tranmission"
+    echo "4"": Restart MySQL"
     echo "5"": quit"
 }
 #
-###########################
+############################
 ####### Function End #######
 ############################
 #
@@ -315,7 +315,7 @@ then
 #
 ############################
 #### User Script Starts ####
-###########################
+############################
 #
 while [ 1 ]
 do
@@ -325,26 +325,149 @@ do
     case "$CHOICE" in
         "1")
             echo
-            wget -qO ~/feral-speed.sh https://git.io/v22hr && bash ~/feral-speed.sh
-            break
-            
+            if [[ -d ~/private/rtorrent ]]
+            then
+                echo -e "\033[31m""Killing all instances of rtorrent""\e[0m"
+                echo
+                kill -9 "$(screen -ls rtorrent | sed -rn 's/(.*).rtorrent[^-](.*)/\1/p')" > /dev/null 2>&1
+                screen -wipe > /dev/null 2>&1
+                echo "Restarting rtorrent"
+                echo
+                # Test to see if rtorrent is running, if the result is null and the respective lock file exists then delete the lock file. Otherwise do nothing.
+                [[ -z "$(pgrep -fu "$(whoami)" "/opt/rtorrent/current/bin/rtorrent")" && -f ~/private/rtorrent/work/rtorrent.lock ]] && rm -f ~/private/rtorrent/work/rtorrent.lock
+                #
+                screen -fa -dmS rtorrent rtorrent
+                sleep 2
+                echo -e "\033[33m""Checking if the process is running:""\e[0m"
+                echo
+                echo "$(ps x | grep "/opt/rtorrent/current/bin/rtorrent" | grep -v grep)"
+                echo
+                echo -e "\033[33m""Checking if the screen is running""\e[0m"
+                echo
+                echo "$(screen -ls | grep rtorrent)"
+                echo
+                echo -e "\033[32m""For troubleshooting refer to the FAQ:""\e[0m" "\033[36m""https://www.feralhosting.com/faq/view?question=158""\e[0m"
+                echo
+                echo -e "To restart other instances of rtorrent/rutorrent installed by the script check this file:" "\033[36m""~/multirtru.restart.txt""\e[0m"
+                echo
+                sleep 2
+            else
+                echo -e "\033[31m""rTorrent is not installed. Nothing to do""\e[0m"
+                echo
+            fi
             ;;
         "2")
             ##
-            wget -qO ~/iocheck.sh https://git.io/v227h && bash ~/iocheck.sh
-            break
+            echo
+            if [[ -d ~/private/deluge ]]
+            then
+                echo -e "\033[31m""Restarting Deluge""\e[0m"
+                echo
+                killall -9 -u $(whoami) deluged deluge-web > /dev/null 2>&1
+                rm -rf ~/.config/deluge/deluged.pid
+                deluged > /dev/null 2>&1
+                sleep 4
+                if [[ -f ~/.config/deluge/deluged.pid ]] 
+                then
+                    echo -e "Deluged was started\n"
+                else   
+                    echo -e "Please open a ticket labelled\n\n""Deluge port in use - $(hostname)\n\n""https://www.feralhosting.com/manager/tickets/new\n"
+                    sleep 2
+                    exit
+                fi
+                if [[ "$(date +%-M)" -le '4' ]] && [[ "$(date +%-M)" -ge '0' ]]; then time="$(( 5 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '9' ]] && [[ "$(date +%-M)" -ge '5' ]]; then time="$(( 10 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '14' ]] && [[ "$(date +%-M)" -ge '10' ]]; then time="$(( 15 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '19' ]] && [[ "$(date +%-M)" -ge '15' ]]; then time="$(( 20 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '24' ]] && [[ "$(date +%-M)" -ge '20' ]]; then time="$(( 25 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '29' ]] && [[ "$(date +%-M)" -ge '25' ]]; then time="$(( 30 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '34' ]] && [[ "$(date +%-M)" -ge '30' ]]; then time="$(( 35 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '39' ]] && [[ "$(date +%-M)" -ge '35' ]]; then time="$(( 40 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '44' ]] && [[ "$(date +%-M)" -ge '40' ]]; then time="$(( 45 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '49' ]] && [[ "$(date +%-M)" -ge '45' ]]; then time="$(( 50 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '54' ]] && [[ "$(date +%-M)" -ge '50' ]]; then time="$(( 55 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '59' ]] && [[ "$(date +%-M)" -ge '55' ]]; then time="$(( 60 * 60 ))"; fi
+                #
+                while [[ "$(pgrep -cfu $(whoami) "deluge-web -f$")" -eq "0" ]]
+                do
+                    countdown="$(( $time-$(($(date +%-M) * 60 + $(date +%-S))) ))"
+                    printf '\rDeluge-web will restart in approximately: %dm:%ds ' $(($countdown%3600/60)) $(($countdown%60))
+                done
+                echo -e '\n'
+                #
+                echo -e "\033[31m""$(ps x | grep -v grep | grep 'deluge')""\e[0m"
+                echo
+                echo -e "\033[32m""For troubleshooting refer to the FAQ:""\e[0m" "\033[36m""https://www.feralhosting.com/faq/view?question=158""\e[0m"
+                echo
+            else
+                echo -e "\033[31m""Deluge is not installed. Nothing to do""\e[0m"
+                echo
+            fi
             ;;
         "3")
-           wget -qO ~/feral-hostname-ip.sh https://git.io/v2aZ6 && bash ~/feral-hostname-ip.sh
-           break
+            echo
+            if [[ -d ~/private/transmission ]]
+            then
+                echo -e "\033[31m""Restarting Transmission""\e[0m"
+                echo
+                killall -9 -u "$(whoami)" transmission-daemon > /dev/null 2>&1
+                sleep 2
+                echo "Waiting for Transmission to reload. It loads every 5 minutes starting from 00 of the hour"
+                echo
+                #
+                if [[ "$(date +%-M)" -le '4' ]] && [[ "$(date +%-M)" -ge '0' ]]; then time="$(( 5 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '9' ]] && [[ "$(date +%-M)" -ge '5' ]]; then time="$(( 10 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '14' ]] && [[ "$(date +%-M)" -ge '10' ]]; then time="$(( 15 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '19' ]] && [[ "$(date +%-M)" -ge '15' ]]; then time="$(( 20 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '24' ]] && [[ "$(date +%-M)" -ge '20' ]]; then time="$(( 25 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '29' ]] && [[ "$(date +%-M)" -ge '25' ]]; then time="$(( 30 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '34' ]] && [[ "$(date +%-M)" -ge '30' ]]; then time="$(( 35 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '39' ]] && [[ "$(date +%-M)" -ge '35' ]]; then time="$(( 40 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '44' ]] && [[ "$(date +%-M)" -ge '40' ]]; then time="$(( 45 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '49' ]] && [[ "$(date +%-M)" -ge '45' ]]; then time="$(( 50 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '54' ]] && [[ "$(date +%-M)" -ge '50' ]]; then time="$(( 55 * 60 ))"; fi
+                if [[ "$(date +%-M)" -le '59' ]] && [[ "$(date +%-M)" -ge '55' ]]; then time="$(( 60 * 60 ))"; fi
+                #
+                while [[ "$(pgrep -cfu "$(whoami)" 'transmission-daemon -e /dev/null')" -eq "0" ]]
+                do
+                    countdown="$(( $time-$(($(date +%-M) * 60 + $(date +%-S))) ))"
+                    printf '\rTransmission will restart in approximately: %dm:%ds ' $(($countdown%3600/60)) $(($countdown%60))
+                done
+                echo -e '\n'
+                #
+                echo -e "\033[31m""$(ps x | grep -v grep | grep 'transmission-daemon -e /dev/null')""\e[0m"
+                echo
+                echo -e "\033[32m""For troubleshooting refer to the FAQ:""\e[0m" "\033[36m""https://www.feralhosting.com/faq/view?question=158""\e[0m"
+                echo
+                sleep 2
+            else
+                echo -e "\033[31m""Transmission is not installed. Nothing to do""\e[0m"
+                echo
+            fi
             ;;
         "4")
-           wget -qO ~/restart.sh https://git.io/v2afh && bash ~/restart.sh
-           break
+            echo
+            if [[ -d ~/private/mysql ]]
+                then
+                echo -e "\033[31m""Restarting MySQL""\e[0m"
+                echo
+                killall -u "$(whoami)" mysqld mysqld_safe  > /dev/null 2>&1
+                bash ~/private/mysql/launch.sh > /dev/null 2>&1
+                echo "Mysql has been restarted"
+                echo
+                echo -e "\033[32m""For troubleshooting refer to the FAQ:""\e[0m" "\033[36m""https://www.feralhosting.com/faq/view?question=158""\e[0m"
+                echo
+                sleep 2
+            else
+                echo -e "\033[31m""Mysql is not installed, nothing to restart. Please install it first""\e[0m"
+                echo
+            fi
             ;;
         "5")
+            echo
+            echo -e "\033[31m""You chose to quit this script""\e[0m"
+            echo
             exit
-            break
             ;;
     esac
 done
@@ -362,5 +485,5 @@ fi
 #
 ############################
 ##### Core Script Ends #####
-###########################
+############################
 #
