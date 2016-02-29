@@ -1,5 +1,5 @@
 #! /bin/bash
-########################
+#########################
 ####Define Variables####
 ########################
 cd ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/
