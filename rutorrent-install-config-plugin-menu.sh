@@ -76,7 +76,7 @@ fi
 ############################
 #
 # Script Version number is set here.
-scriptversion="1.1.7"
+scriptversion="2.0"
 #
 # Script name goes here. Please prefix with install.
 scriptname="rutorrent-install-config-plugin-menu"
@@ -123,7 +123,7 @@ host2https="https://$(hostname -f)/$(whoami)/"
 [[ -d ~/private/transmission/data ]] && transmissiondata="$HOME/private/transmission/data"
 #
 # Bug reporting varaibles.
-gitissue="https://github.com/feralhosting/feralfilehosting/issues/new"
+gitissue="https://github.com/Dedsec1/feral/issues/new"
 #
 ############################
 ## Custom Variables Start ##
@@ -154,7 +154,7 @@ showMenu ()
     echo "4"": Install Feral Stat's Plugin"
     echo "5"": Install Fileshare Plugin"
     echo "6"": Install Mediashare Plugin"
-    echo """: quit"
+    echo "7"": quit"
 }
 #
 ###########################
@@ -333,44 +333,28 @@ do
             ;;
         "2")
             ##
-            wget -qO ~/ratio.zip http://git.io/71cumA
-            unzip -qo ~/ratio.zip -d ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/
-            cd && rm -f ratio.zip
+            wget -qO ~/feral-stats.sh  https://git.io/v2VPv && bash ~/feral-stats.sh 
             break
             ;;
         "3")
-            wget -qO ratiocolor.zip http://git.io/PiSq_g && 
-            unzip -qo ratiocolor.zip -d ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/            
-            cd ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/
-            cp -rf rutorrent-ratiocolor-master/. ratiocolor && rm -rf rutorrent-ratiocolor-master ratiocolor.zip
-            cd
+            wget -qO ~/color-ratio.sh  https://git.io/v2V6g  && bash ~/color-ratio.sh
             break
             ;;
         "4")
            
-           wget -qO feralstats.zip http://git.io/nB1WyA
-           unzip -qo feralstats.zip && -d ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/ 
-           cd && rm -f feralstats.zip 
-           break
+            wget -qO ~/color-ratio-background.sh  https://git.io/v2VPt && bash ~/color-ratio-background.
+            break
             ;;
         "5")
-           cd ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/
-           svn co -q http://svn.rutorrent.org/svn/filemanager/trunk/filemanager
-           svn co -q http://svn.rutorrent.org/svn/filemanager/trunk/fileshare
-           ln -s ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/fileshare/share.php ~/www/$(whoami).$(hostname -f)/public_html/
-           sed "/if(getConfFile(/d" -i ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/fileshare/share.php
-           sed "s|robits.org/rutorrent|$(whoami).$(hostname -f)|g" -i ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/fileshare/conf.php
-           break
+            wget -qO ~/RuTorrent-Install-Fileshare.sh https://git.io/v2VXn && bash ~/RuTorrent-Install-F
+            break
             ;;
         "6")
-            cd ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/
-            svn co -q http://svn.rutorrent.org/svn/filemanager/trunk/mediastream
-            svn co -q http://svn.rutorrent.org/svn/filemanager/trunk/filemanager
-            mkdir ~/www/$(whoami).$(hostname -f)/public_html/stream
-            ln -s ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/mediastream/view.php ~/www/$(whoami).$(hostname -f)/public_html/stream/
+            wget -qO ~/RuTorrent-Install-Mediashare.sh https://git.io/v2VXA && bash ~/RuTorrent-Install-Mediashare.sh
+            break
             ;;
         "7")
-            quit
+            exit
             break
             ;;
             
