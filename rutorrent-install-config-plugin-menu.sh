@@ -79,7 +79,7 @@ fi
 scriptversion="1.1.7"
 #
 # Script name goes here. Please prefix with install.
-scriptname="rutorrent-install-config-plugin-menu"
+scriptname="Rutorrent Install,Config & Plugin Install Menu"
 #
 # Author name goes here.
 scriptauthor="Dedsec"
