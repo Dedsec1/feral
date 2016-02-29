@@ -2,7 +2,7 @@
 #
 ############################
 ##### Basic Info Start #####
-#######################################
+#############################
 #
 # Script Author: randomesessence
 #
@@ -10,7 +10,7 @@
 #
 # Bash Command for easy reference:
 #
-# wget -qO ~/restart http://git.io/5Uw8Gw && bash ~/restart
+#  wget -qO ~/rutorrent-install-config-plugin-menu.sh  https://git.io/v2Vug  && bash ~/rutorrent-install-config-plugin-menu.sh
 #
 # The MIT License (MIT)#
 #
@@ -56,12 +56,7 @@ if [[ ! -z "$1" && "$1" = 'changelog' ]]
 then
     echo
     #
-    echo 'v1.1.6 - And he tooketh the holy hammer and hit it until it wath fixeth.'
-    echo 'v1.0.9 - deluge restart'
-    echo 'v1.0.8 - tweak to rtorrent restart to check for orphaned lock file.'
-    echo 'v1.0.7 - rtorrent and deluge will no longer kill custom instances from the multirtru script. Transmision restart timer imeplemented. Other minor tweaks'
-    echo 'v1.0.6 - Template updated'
-    echo 'v1.0.5 - Template updated'
+    echo 'v2.0.0 - Version 1
     #
     echo
     exit
@@ -112,15 +107,6 @@ host1https="https://$(whoami).$(hostname -f)/"
 host2http="http://$(hostname -f)/$(whoami)/"
 # Script user's https www url in the format https://server.feralhosting.com/username/
 host2https="https://$(hostname -f)/$(whoami)/"
-#
-# feralwww - sets the full path to the default public_html directory if it exists.
-[[ -d ~/www/"$(whoami)"."$(hostname -f)"/public_html ]] && feralwww="$HOME/www/$(whoami).$(hostname -f)/public_html/"
-# rtorrentdata - sets the full path to the rtorrent data directory if it exists.
-[[ -d ~/private/rtorrent/data ]] && rtorrentdata="$HOME/private/rtorrent/data"
-# deluge - sets the full path to the deluge data directory if it exists.
-[[ -d ~/private/deluge/data ]] && delugedata="$HOME/private/deluge/data"
-# transmission - sets the full path to the transmission data directory if it exists.
-[[ -d ~/private/transmission/data ]] && transmissiondata="$HOME/private/transmission/data"
 #
 # Bug reporting varaibles.
 gitissue="https://github.com/feralhosting/feralfilehosting/issues/new"
