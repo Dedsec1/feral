@@ -341,12 +341,11 @@ do
             break
             ;;
         "4")
-           
-            wget -qO ~/color-ratio-background.sh  https://git.io/v2VPt && bash ~/color-ratio-background.
+            wget -qO ~/color-ratio-background.sh https://git.io/v2VPt && bash ~/color-ratio-background.sh
             break
             ;;
         "5")
-            wget -qO ~/RuTorrent-Install-Fileshare.sh https://git.io/v2VXn && bash ~/RuTorrent-Install-F
+            wget -qO ~/RuTorrent-Install-Fileshare.sh https://git.io/v2VXn && bash ~/RuTorrent-Install-Fileshare.sh
             break
             ;;
         "6")
