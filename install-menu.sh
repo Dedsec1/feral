@@ -80,10 +80,10 @@ fi
 scriptversion="1.1.8"
 #
 # Script name goes here. Please prefix with install.
-scriptname="test"
+scriptname="installmenu"
 #
 # Author name goes here.
-scriptauthor="randomessence"
+scriptauthor="Dedsec"
 #
 # Contributor's names go here.
 contributors="None credited"
@@ -152,11 +152,8 @@ showMenu ()
     echo "1"": Install AutoDL-irssi"
     echo "2"": Install Bittorrent Sync"
     echo "3"": Install CouchPotato"
-    echo "4"": Install Curl"
-    echo "5"": Install CMAKE"
-    echo "6"": Install Duplicity"
-    echo "7"": Install FFMpeg"
-    echo "8"": Install Flexget"
+    echo "4"": Install FFMpeg"
+    echo "5"": Install Flexget"
     echo "9"": Install Icecast"
     echo "10"": Install ImageMagick"
     echo "11"": Install Java"
@@ -357,30 +354,6 @@ do
             https://server.feralhosting.com/username/couchpotato"
             break
             ;;
-        "4")
-            ##
-            echo "Please Wait:Doing some pre requisite tasks for Curl"
-            mkdir -p ~/bin && bash
-            wget -qO ~/curl.tar.gz http://curl.haxx.se/download/curl-7.41.0.tar.gz
-            tar xf ~/curl.tar.gz && cd ~/curl-7.41.0
-            ./configure --prefix=$HOME
-            make && make install
-            cd && rm -rf curl{-7.41.0,.tar.gz}
-            echo "Curl Install finished, Checking Version"
-            curl -V
-            break
-            ;;
-        "5")
-           ##
-            echo "Please Wait:Doing some pre requisite tasks for CMAKE"
-            mkdir -p ~/bin && bash
-            echo "Installing CMAKE"
-            wget -qO ~/cmake.tar.gz http://www.cmake.org/files/v3.2/cmake-3.2.2-Linux-x86_64.tar.gz
-            tar xf ~/cmake.tar.gz --strip-components=1 -C ~/
-            echo "CMAKE Install has finished checking program to make sure it works"
-            cmake --version
-            break
-            ;;
         "6")
             echo "Please Wait:Doing some pre requisite tasks for Duplicity"
             mkdir -p ~/bin && bash
@@ -401,7 +374,6 @@ do
             break
             ;;
         "7")
-            echo "Please Wait:Doing some pre requisite tasks for FFmpeg"
             mkdir -p ~/bin && bash
             echo "Installing FFmpeg"
             wget -qO ~/ffmpeg.tar.gz http://johnvansickle.com/ffmpeg/releases/ffmpeg-release-64bit-static.tar.xz
