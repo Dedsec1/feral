@@ -497,11 +497,12 @@ do
             git clone https://github.com/lokenx/plexrequests-meteor.git ~/.plexrequests
             cd ~/.plexrequests
             screen -S plexrequests meteor --port 31244
-            echo"Press CTRL + A + D on your keyboard to detach screen. And Plex Requests is will be installed and running on this address :
-            http://username.server.feralhosting.com:portnumber
+            echo"Press CTRL + A + D on your keyboard to detach screen. And Plex Requests is will be installed and running on this address : 
+            http://username.server.feralhosting.com:portnumber"
             break
             ;;
            
     esac
 done
 #
+##
