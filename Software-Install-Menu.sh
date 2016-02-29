@@ -149,11 +149,20 @@ updaterenabled="1"
 #
 showMenu () 
 {
-    echo "1"": Check Download Speed for your Feral slot"
-    echo "2"": Check Disk IO,Disk Usage,Current Process's Running"
-    echo "3"": Get Hostname and IP for your Feral slot"
-    echo "4"": Reboot Deluge,RuTorrent,Transmission,MySQL"
-    echo "5"": quit"
+    echo "1"": Install AutoDL-irssi"
+    echo "2"": Install Bittorrent Sync"
+    echo "3"": Install CouchPotato"
+    echo "4"": Install Curl"
+    echo "5"": Install CMAKE"
+    echo "6"": Install Duplicity"
+    echo "7"": Install FFMpeg"
+    echo "8"": Install Flexget"
+    echo "9"": Install Icecast"
+    echo "10"": Install ImageMagick"
+    echo "11"": Install Java"
+    echo "12"": Install Mosh"
+    echo "13"": Install Murmur"
+    echo "14"": Install Plex"
 }
 #
 ###########################
