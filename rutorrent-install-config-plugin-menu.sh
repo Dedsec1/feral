@@ -79,10 +79,10 @@ fi
 scriptversion="1.1.7"
 #
 # Script name goes here. Please prefix with install.
-scriptname="test"
+scriptname="Rutorrent-Config-Menu"
 #
 # Author name goes here.
-scriptauthor="randomessence"
+scriptauthor="Dedsec"
 #
 # Contributor's names go here.
 contributors="None credited"
@@ -148,11 +148,13 @@ updaterenabled="1"
 #
 showMenu () 
 {
-    echo "1"": Check Download Speed for your Feral slot"
-    echo "2"": Check Disk IO,Disk Usage,Current Process's Running"
-    echo "3"": Get Hostname and IP for your Feral slot"
-    echo "4"": Reboot Deluge,RuTorrent,Transmission,MySQL"
-    echo "5"": quit"
+    echo "1"": Backup Rutorrent RSS Config "
+    echo "2"": Install Colored Ratio Plugin"
+    echo "3"": Install Colored Ratio Plugin (font is coloured instead the background)"
+    echo "4"": Install Feral Stat's Plugin"
+    echo "5"": Install Fileshare Plugin"
+    echo "6"": Install Mediashare Plugin"
+    echo """: quit"
 }
 #
 ###########################
@@ -325,27 +327,51 @@ do
     case "$CHOICE" in
         "1")
             echo
-            wget -qO ~/feral-speed.sh https://git.io/v22hr && bash ~/feral-speed.sh
+            rsync -avhPS ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/share/users/ ~/rssbackup
             break
             
             ;;
         "2")
             ##
-            wget -qO ~/iocheck.sh https://git.io/v227h && bash ~/iocheck.sh
+            wget -qO ~/ratio.zip http://git.io/71cumA
+            unzip -qo ~/ratio.zip -d ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/
+            cd && rm -f ratio.zip
             break
             ;;
         "3")
-           wget -qO ~/feral-hostname-ip.sh https://git.io/v2aZ6 && bash ~/feral-hostname-ip.sh
+           cd ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/
+           wget -qO ratiocolor.zip http://git.io/PiSq_g && unzip -qo ratiocolor.zip
+           cp -rf rutorrent-ratiocolor-master/. ratiocolor && rm -rf rutorrent-ratiocolor-master ratiocolor.zip
+           cd
            break
             ;;
         "4")
-           wget -qO ~/restart.sh https://git.io/v2afh && bash ~/restart.sh
+           cd ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/
+           wget -qO feralstats.zip http://git.io/nB1WyA
+           unzip -qo feralstats.zip && rm -f feralstats.zip
            break
             ;;
         "5")
-            exit
+           cd ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/
+           svn co -q http://svn.rutorrent.org/svn/filemanager/trunk/filemanager
+           svn co -q http://svn.rutorrent.org/svn/filemanager/trunk/fileshare
+           ln -s ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/fileshare/share.php ~/www/$(whoami).$(hostname -f)/public_html/
+           sed "/if(getConfFile(/d" -i ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/fileshare/share.php
+           sed "s|robits.org/rutorrent|$(whoami).$(hostname -f)|g" -i ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/fileshare/conf.php
+           break
+            ;;
+        "5")
+            cd ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/
+            svn co -q http://svn.rutorrent.org/svn/filemanager/trunk/mediastream
+            svn co -q http://svn.rutorrent.org/svn/filemanager/trunk/filemanager
+            mkdir ~/www/$(whoami).$(hostname -f)/public_html/stream
+            ln -s ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/mediastream/view.php ~/www/$(whoami).$(hostname -f)/public_html/stream/
+            ;;
+        "6")
+            quit
             break
             ;;
+            
     esac
 done
 #
