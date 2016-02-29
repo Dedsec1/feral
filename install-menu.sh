@@ -382,7 +382,7 @@ do
             flexget
             break
             ;;
-        "11")
+        "6")
             echo "Please Wait: Installing Java 1.8"
             wget -qO ~/java.tar.gz http://javadl.sun.com/webapps/download/AutoDL?BundleId=111681
             tar xf ~/java.tar.gz --strip-components=1 -C ~/
@@ -391,7 +391,7 @@ do
             java -version
             break
             ;;
-        "12")
+        "7")
             echo "Please Wait: Installing Mosh"
             wget -qO ~/protobuf-2.5.0.tar.gz http://protobuf.googlecode.com/files/protobuf-2.5.0.tar.gz
             tar xf ~/protobuf-2.5.0.tar.gz && cd ~/protobuf-2.5.0
@@ -408,7 +408,7 @@ do
             mosh username@server.feralhosting.com --server=~/bin/mosh-server
             break
             ;;
-        "13")
+        "8")
             echo "Please Wait: Installing Murmur"
             wget -qO ~/install.murmur http://git.io/-mVd3g && bash ~/install.murmur
             ~/murmur/murmurd
@@ -416,7 +416,7 @@ do
             ~/murmur/murmurd -ini ~/murmur/murmur.ini
             break
             ;;
-        "14")
+        "9")
             echo "Please Wait: Installing Plex"
             curl https://gist.githubusercontent.com/feralhosting/ed3321cdebf8a59d47a5/raw/979f8b1d042c9ed20d2db0f9705b8a6df4133bdf/meteor.sh | sh 
             echo "Checking Meteor Version"
