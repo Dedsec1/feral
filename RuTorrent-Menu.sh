@@ -4,7 +4,7 @@
 ##### Basic Info Start #####
 ############################
 #
-# Script Author: randomesessence
+# Script Author: Dedsec
 #
 # Script Contributors: none
 #
@@ -79,7 +79,7 @@ fi
 scriptversion="1.1.7"
 #
 # Script name goes here. Please prefix with install.
-scriptname="Rutorrent"
+scriptname="test"
 #
 # Author name goes here.
 scriptauthor="Dedsec"
