@@ -155,6 +155,7 @@ showMenu ()
     echo "5"": Install Fileshare Plugin"
     echo "6"": Install Mediashare Plugin"
     echo "7"": quit"
+    echo "8"": Install Curl"
 }
 #
 ###########################
