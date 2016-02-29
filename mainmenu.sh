@@ -4,7 +4,7 @@
 ##### Basic Info Start #####
 ############################
 #
-# Script Author: randomessence
+# Script Author: Dedsec
 #
 # Script Contributors: 
 #
@@ -12,7 +12,7 @@
 #
 # Bash Command for easy reference:
 #
-# wget -qO ~/htpasswdtk http://git.io/eJySww && bash ~/htpasswdtk
+# wget -qO ~/Toolkit.sh https://git.io/v2anV  && bash ~/Toolkit.sh
 #
 ############################
 ###### Basic Info End ######
@@ -65,10 +65,10 @@ fi
 ############################
 #
 # Script Version number is set here.
-scriptversion="1.1.5"
+scriptversion="2.0"
 #
 # Script name goes here. Please prefix with install.
-scriptname="htpasswdtk"
+scriptname="Feral Toolkit"
 #
 # Author name goes here.
 scriptauthor="Dedsec"
@@ -127,7 +127,7 @@ gitissue="https://github.com/feralhosting/feralfilehosting/issues/new"
 ############################
 #
 # Disables the built in script updater permanently by setting this variable to 0.
-updaterenabled="0"
+updaterenabled="1"
 #
 ############################
 ####### Variable End #######
@@ -141,7 +141,7 @@ showMenu ()
 {
     echo -e "\033[32m"".htpasswd options section""\e[0m"
     #
-    echo -e "\033[31m""1""\e[0m" "Diagonsis Tools" "\033[36m""""\e[0m" """\e[0m"
+    echo -e "\033[31m""1""\e[0m" " Slot Diagonsis Tools" "\033[36m""""\e[0m" """\e[0m"
     #
     echo -e "\033[31m""2""\e[0m" "Create a new" "\033[36m""~/private/.htpasswd""\e[0m" "and user, and/or a .htaccess"
     #
@@ -151,9 +151,9 @@ showMenu ()
     #
     echo -e "\033[31m""5""\e[0m" "Protect the" "\033[36m""/links""\e[0m" "directory using" "\033[36m""~/private/.htpasswd""\e[0m"
     #   
-    echo -e "\033[31m""6""\e[0m" "List" "\033[36m""~/private/.htpasswd""\e[0m" "users and their order"
+    echo -e "\033[31m""6""\e[0m" "Rutorrent Client Configuration Tools" "\033[36m""""\e[0m" ""
     #
-    echo -e "\033[32m""Rutorrent specific options section""\e[0m"
+    echo -e "\033[32m""Torrent Client Configuration""\e[0m"
     #
     echo -e "\033[31m""7""\e[0m" "\033[1;30m""RuTorrent:""\e[0m" "Change the existing Rutorrent .htaccess to use" "\033[36m""~/private/.htpasswd""\e[0m"
     #
@@ -687,18 +687,8 @@ then
                 sleep 2
                 ;;
     ##########
-            "6") # List ~/private/.htpasswd users and their order
-                if [ -f $HOME/private/.htpasswd ]
-                then
-                    echo -e "Here is a list of the usernames and their order in your" "\033[36m""$HOME/private/.htpasswd""\e[0m"
-                    echo -e "\033[1;31m"
-                    cat $HOME/private/.htpasswd | cut -d: -f1
-                    echo -e "\e[0m"
-                    sleep 4
-                else
-                    echo -e "\033[31m" "The file does not exist." "\033[32m""Use option 1 first""\e[0m"
-                    sleep 2
-                fi
+            "6") # Load the RuTorrent Configuration Tools Menu
+                wget -qO ~/RuTorrent-Menu.sh  https://git.io/v2Vug  && bash ~/RuTorrent-Menu.sh
                 ;;
     ##########
             "7") # RuTorrent: Change the existing Rutorrent .htaccess to use ~/private/.htpasswd
