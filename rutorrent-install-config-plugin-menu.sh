@@ -354,7 +354,6 @@ do
             ;;
         "7")
             exit
-            wget -qO ~/Toolkit.sh https://git.io/v2anV  && bash ~/Toolkit.sh
             break
             ;;
             
