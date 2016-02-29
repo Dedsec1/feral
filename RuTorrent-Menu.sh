@@ -10,7 +10,7 @@
 #
 # Bash Command for easy reference:
 #
-# wget -qO ~/restart http://git.io/5Uw8Gw && bash ~/restart
+# 
 #
 # The MIT License (MIT)
 #
@@ -79,7 +79,7 @@ fi
 scriptversion="1.1.7"
 #
 # Script name goes here. Please prefix with install.
-scriptname="RuTorrent-Menu"
+scriptname="RuTorrent-Menu.sh"
 #
 # Author name goes here.
 scriptauthor="Dedsec"
