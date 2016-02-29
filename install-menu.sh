@@ -77,7 +77,7 @@ fi
 ############################
 #
 # Script Version number is set here.
-scriptversion="1.1.7"
+scriptversion="1.1.8"
 #
 # Script name goes here. Please prefix with install.
 scriptname="test"
@@ -95,7 +95,7 @@ gitiourl="http://git.io/5Uw8Gw"
 gitiocommand="wget -qO ~/$scriptname $gitiourl && bash ~/$scriptname"
 #
 # This is the raw github url of the script to use with the built in updater.
-scripturl="https://raw.githubusercontent.com/Dedsec1/feral/master/menu.sh"
+scripturl="https://raw.githubusercontent.com/Dedsec1/feral/master/install-menu.sh"
 #
 # This will generate a 20 character random passsword for use with your applications.
 apppass="$(< /dev/urandom tr -dc '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz' | head -c20; echo;)"
@@ -137,7 +137,7 @@ gitissue="https://github.com/feralhosting/feralfilehosting/issues/new"
 ############################
 #
 # Disables the built in script updater permanently by setting this variable to 0.
-updaterenabled="0"
+updaterenabled="1"
 #
 ############################
 ####### Variable End #######
