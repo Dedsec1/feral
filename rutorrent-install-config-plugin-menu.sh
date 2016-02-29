@@ -354,7 +354,7 @@ do
             break
             ;;
         "7")
-            quit
+            exit
             break
             ;;
             
