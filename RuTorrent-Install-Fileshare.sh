@@ -8,7 +8,7 @@
            ln -s ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/fileshare/share.php ~/www/$(whoami).$(hostname -f)/public_html/
            sed "/if(getConfFile(/d" -i ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/fileshare/share.php
            sed "s|robits.org/rutorrent|$(whoami).$(hostname -f)|g" -i ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/fileshare/conf.php
-           echo  "The Feral Stats Plugin has Sucessfully been installed, Please refresh your Rutorrent page."
+           echo  "The ruTorrent Fileshare Plugin has Sucessfully been installed, Please refresh your Rutorrent page."
            wget -qO ~/Rutorrent-MainMenu.sh  https://git.io/v2Vug  && bash ~/Rutorrent-MainMenu.sh 
            ##
            
