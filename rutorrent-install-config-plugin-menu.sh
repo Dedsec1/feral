@@ -76,7 +76,7 @@ fi
 ############################
 #
 # Script Version number is set here.
-scriptversion="1.1.7"
+scriptversion="1.1.8"
 #
 # Script name goes here. Please prefix with install.
 scriptname="rutorrent-install-config-plugin-menu"
