@@ -139,11 +139,11 @@ updaterenabled="1"
 #
 showMenu () 
 {
-    echo -e "\033[32m"".htpasswd options section""\e[0m"
+    echo -e "\033[32m""Feral Toolkit Menus""\e[0m"
     #
-    echo -e "\033[31m""1""\e[0m" " Slot Diagonsis Tools" "\033[36m""""\e[0m" """\e[0m"
+    echo -e "\033[31m""1""\e[0m" "Slot Diagonsis Tools" "\033[36m""""\e[0m" """\e[0m"
     #
-    echo -e "\033[31m""2""\e[0m" "Create a new" "\033[36m""~/private/.htpasswd""\e[0m" "and user, and/or a .htaccess"
+    echo -e "\033[31m""2""\e[0m" "Software Installation Tools" "\033[36m""~/private/.htpasswd""\e[0m" "and user, and/or a .htaccess"
     #
     echo -e "\033[31m""3""\e[0m" "Add a new user or update an existing user in your" "\033[36m""~/private/.htpasswd""\e[0m"
     #
