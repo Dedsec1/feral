@@ -360,14 +360,14 @@ do
            sed "s|robits.org/rutorrent|$(whoami).$(hostname -f)|g" -i ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/fileshare/conf.php
            break
             ;;
-        "5")
+        "6")
             cd ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/
             svn co -q http://svn.rutorrent.org/svn/filemanager/trunk/mediastream
             svn co -q http://svn.rutorrent.org/svn/filemanager/trunk/filemanager
             mkdir ~/www/$(whoami).$(hostname -f)/public_html/stream
             ln -s ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/mediastream/view.php ~/www/$(whoami).$(hostname -f)/public_html/stream/
             ;;
-        "6")
+        "7")
             quit
             break
             ;;
