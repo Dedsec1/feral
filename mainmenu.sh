@@ -68,7 +68,7 @@ fi
 scriptversion="2.0"
 #
 # Script name goes here. Please prefix with install.
-scriptname="Feral Toolkit"
+scriptname="Feral-Toolkit"
 #
 # Author name goes here.
 scriptauthor="Dedsec"
