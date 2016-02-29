@@ -332,16 +332,16 @@ do
             
             ;;
         "2")
-            ##
-            wget -qO ~/feral-stats.sh  https://git.io/v2VPv && bash ~/feral-stats.sh 
-            break
-            ;;
-        "3")
+            
             wget -qO ~/color-ratio.sh  https://git.io/v2V6g  && bash ~/color-ratio.sh
             break
             ;;
+        "3")
+            wget -qO ~/color-ratio-background.sh  https://git.io/v2VPt && bash ~/color-ratio-background.sh
+            break
+            ;;
         "4")
-            wget -qO ~/color-ratio-background.sh https://git.io/v2VPt && bash ~/color-ratio-background.sh
+            wget -qO ~/feral-stats.sh  https://git.io/v2VPv && bash ~/feral-stats.sh 
             break
             ;;
         "5")
