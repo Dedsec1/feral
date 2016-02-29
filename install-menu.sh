@@ -80,10 +80,10 @@ fi
 scriptversion="1.1.8"
 #
 # Script name goes here. Please prefix with install.
-scriptname="installmenu"
+scriptname="test"
 #
 # Author name goes here.
-scriptauthor="Dedsec"
+scriptauthor="randomessence"
 #
 # Contributor's names go here.
 contributors="None credited"
@@ -154,12 +154,10 @@ showMenu ()
     echo "3"": Install CouchPotato"
     echo "4"": Install FFMpeg"
     echo "5"": Install Flexget"
-    echo "9"": Install Icecast"
-    echo "10"": Install ImageMagick"
-    echo "11"": Install Java"
-    echo "12"": Install Mosh"
-    echo "13"": Install Murmur"
-    echo "14"": Install Plex"
+    echo "6"": Install Java"
+    echo "7"": Install Mosh"
+    echo "8"": Install Murmur"
+    echo "9"": Install Plex"
 }
 #
 ###########################
@@ -354,26 +352,8 @@ do
             https://server.feralhosting.com/username/couchpotato"
             break
             ;;
-        "6")
-            echo "Please Wait:Doing some pre requisite tasks for Duplicity"
-            mkdir -p ~/bin && bash
-            [ ! "$(grep '~/.local/bin' ~/.bashrc)" ] && echo 'export PATH=~/.local/bin:$PATH' >> ~/.bashrc ; source ~/.bashrc
-            echo "Installing Librsync"
-            wget -qO ~/librsync.tar.gz http://downloads.sourceforge.net/project/librsync/librsync/0.9.7/librsync-0.9.7.tar.gz
-            tar xf ~/librsync.tar.gz && cd ~/librsync-0.9.7
-            ./configure --prefix=$HOME --with-pic && make && make install
-            cd && rm -rf librsync{-0.9.7,.tar.gz}
-            echo "Installing Duplicity"
-            wget -qO ~/duplicity.tar.gz https://launchpad.net/duplicity/0.6-series/0.6.24/+download/duplicity-0.6.24.tar.gz
-            tar xf ~/duplicity.tar.gz && cd ~/duplicity-0.6.24
-            python setup.py install --prefix=$HOME/.local --librsync-dir=$HOME
-            cd && rm -rf duplicity{-0.6.24,.tar.gz}
-            echo "Checking Duplicity was installed correctly"
-            duplicity --version
-            duplicity --help
-            break
-            ;;
-        "7")
+        "4")
+            echo "Please Wait:Doing some pre requisite tasks for FFmpeg"
             mkdir -p ~/bin && bash
             echo "Installing FFmpeg"
             wget -qO ~/ffmpeg.tar.gz http://johnvansickle.com/ffmpeg/releases/ffmpeg-release-64bit-static.tar.xz
@@ -386,7 +366,7 @@ do
             ~/bin/ffmpeg -version
             break
             ;;
-        "8")
+        "5")
             echo "Please Wait:Doing some pre requisite tasks for Flexget"
             pip uninstall virtualenv
             cd && rm -rf .local/bin/virtualenv{,-2.7}
@@ -400,30 +380,6 @@ do
             ~/flexget/bin/flexget
             echo" Doing one more Flexget test"
             flexget
-            break
-            ;;
-        "9")
-            echo "Please Wait:Doing some pre requisite tasks for Icecast"
-            svn co -q http://svn.xiph.org/icecast/trunk/icecast ~/icecast
-            echo "Going into Icecast Directory"
-            mkdir -p ~/private/icecast/var/log/icecast && cd ~/icecast
-            echo "Installing Icecast using autogen, Note: If you see a compilation error at the stage, please open a support ticket and request the following packages to be installed: libxslt1-dev libogg-dev libvorbis-dev"
-            ./autogen.sh --prefix="$HOME/private/icecast"
-            echo "Standby Making Icecast: you should receive no errors. However, if you do receive a permissions error check your prefix that you set in step 5!"
-            make && make install
-            echo "Testing Icecast"
-            ~/private/icecast/bin/./icecast -c ~/private/icecast/etc/icecast.xml
-            break
-            ;;
-        "10")
-            echo "Please Wait:Doing some pre requisite tasks for ImageMagick"
-            mkdir -p ~/bin && bash
-            echo "Installing ImageMagick"
-            wget -qO ~/ImageMagick.tar.gz http://www.imagemagick.org/download/ImageMagick.tar.gz
-            tar xf ~/ImageMagick.tar.gz && cd ~/ImageMagick-*
-            ./configure --prefix=$HOME
-            make && make install
-            cd && rm -rf ImageMagick{.tar.gz,-*}
             break
             ;;
         "11")
