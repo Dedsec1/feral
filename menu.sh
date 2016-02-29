@@ -4,13 +4,14 @@
 ##### Basic Info Start #####
 ###########################
 #
-# Script Author: randomesessence
+# Script Author: Dedsec
 #
 # Script Contributors: none
 #
 # Bash Command for easy reference:
 #
-# wget -qO ~/restart http://git.io/5Uw8Gw && bash ~/restart
+# wget -qO ~/Menu.sh https://git.io/v2as4  && bash ~/Menu.sh
+
 #
 # The MIT License (MIT)
 #
