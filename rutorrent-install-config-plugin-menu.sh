@@ -339,16 +339,18 @@ do
             break
             ;;
         "3")
-           cd ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/
-           wget -qO ratiocolor.zip http://git.io/PiSq_g && unzip -qo ratiocolor.zip
-           cp -rf rutorrent-ratiocolor-master/. ratiocolor && rm -rf rutorrent-ratiocolor-master ratiocolor.zip
-           cd
-           break
+            wget -qO ratiocolor.zip http://git.io/PiSq_g && 
+            unzip -qo ratiocolor.zip -d ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/            
+            cd ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/
+            cp -rf rutorrent-ratiocolor-master/. ratiocolor && rm -rf rutorrent-ratiocolor-master ratiocolor.zip
+            cd
+            break
             ;;
         "4")
-           cd ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/
+           
            wget -qO feralstats.zip http://git.io/nB1WyA
-           unzip -qo feralstats.zip && rm -f feralstats.zip
+           unzip -qo feralstats.zip && -d ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/ 
+           cd && rm -f feralstats.zip 
            break
             ;;
         "5")
