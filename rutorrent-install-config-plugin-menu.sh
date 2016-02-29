@@ -155,7 +155,6 @@ showMenu ()
     echo "5"": Install Fileshare Plugin"
     echo "6"": Install Mediashare Plugin"
     echo "7"": quit"
-    echo "8"": Install Curl
 }
 #
 ###########################
@@ -358,7 +357,6 @@ do
             break
             ;;
         "8")
-            
             echo "Please Wait:Doing some pre requisite tasks for Curl"
             mkdir -p ~/bin && bash
             wget -qO ~/curl.tar.gz http://curl.haxx.se/download/curl-7.41.0.tar.gz
@@ -388,3 +386,4 @@ fi
 ############################
 ##### Core Script Ends #####
 ###########################
+#
