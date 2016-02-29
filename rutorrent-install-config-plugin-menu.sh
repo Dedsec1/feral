@@ -14,7 +14,7 @@
 #
 # The MIT License (MIT)#
 #
-# Copyright (c) 2016 randomessence
+# Copyright (c) 2016 Dedsec
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -76,7 +76,7 @@ fi
 ############################
 #
 # Script Version number is set here.
-scriptversion="1.1.9"
+scriptversion="2.0.0"
 #
 # Script name goes here. Please prefix with install.
 scriptname="rutorrent-install-config-plugin-menu"
