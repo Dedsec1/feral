@@ -1,6 +1,6 @@
 #!/bin/bash
 
-threshold="20"
+threshold="10"
 
 i=2
 
