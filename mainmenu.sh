@@ -38,23 +38,23 @@ then
     #
     # put your version changes in the single quotes and then uncomment the line.
     #
-    #echo 'v1.1.5 auth group removed'
-    #echo 'v1.1.4 template updated'
-    #echo 'v1.1.2 template updated'
-    #echo '1.1.1 nginx rcp specific options for default and multple instances. tweaked the way option 18 works.'
-    #echo '1.1.0 Changes to Authname generation to avoid conflict or allow single login'
-    #echo '1.0.5 multi rtorrent/rutorrent options'
-    #echo '1.0.4 nginx /links and apache /links options added'
-    #echo '1.0.3 Updater included.'
-    #echo '1.0.2 Better checks for option 1 with explanations on htaccess'
-    #echo '1.0.1 wgets itself and puts it in the ~/bin with 700. Added files exist checks for all htpasswd calls. Cosmetics'
-    #echo '1.0.0 A working and functional script.'
-    #echo 'v0.5.0 Main options created and refined producing a usable script'
-    #echo 'v0.0.1 - 0.0.1 Initial Version'
+    echo 'v1.1.5 auth group removed'
+    echo 'v1.1.4 template updated'
+    echo 'v1.1.2 template updated'
+    echo '1.1.1 nginx rcp specific options for default and multple instances. tweaked the way option 18 works.'
+    echo '1.1.0 Changes to Authname generation to avoid conflict or allow single login'
+    echo '1.0.5 multi rtorrent/rutorrent options'
+    echo '1.0.4 nginx /links and apache /links options added'
+    echo '1.0.3 Updater included.'
+    echo '1.0.2 Better checks for option 1 with explanations on htaccess'
+    echo '1.0.1 wgets itself and puts it in the ~/bin with 700. Added files exist checks for all htpasswd calls. Cosmetics'
+    echo '1.0.0 A working and functional script.'
+    echo 'v0.5.0 Main options created and refined producing a usable script'
+    echo 'v0.0.1 - 0.0.1 Initial Version'
     #
-    #echo
-    #exit
-#fi
+    echo
+    exit
+fi
 #
 ############################
 ### Version History Ends ###
@@ -149,45 +149,45 @@ showMenu ()
     #
     echo -e "\033[31m""4""\e[0m" "Rutorrent Tools Menu" "\033[36m""""\e[0m"
     #
-    echo -e "\033[31m""5""\e[0m" "Protect the" "\033[36m""/links""\e[0m" "directory using" "\033[36m""~/private/.htpasswd""\e[0m"
+    #echo -e "\033[31m""5""\e[0m" "Protect the" "\033[36m""/links""\e[0m" "directory using" "\033[36m""~/private/.htpasswd""\e[0m"
     #   
-    echo -e "\033[31m""6""\e[0m" "Rutorrent Client Configuration Tools" "\033[36m""""\e[0m" ""
+    #echo -e "\033[31m""6""\e[0m" "Rutorrent Client Configuration Tools" "\033[36m""""\e[0m" ""
     #
-    echo -e "\033[32m""Torrent Client Configuration""\e[0m"
+    #echo -e "\033[32m""Torrent Client Configuration""\e[0m"
     #
-    echo -e "\033[31m""7""\e[0m" "\033[1;30m""RuTorrent:""\e[0m" "Change the existing Rutorrent .htaccess to use" "\033[36m""~/private/.htpasswd""\e[0m"
+    #echo -e "\033[31m""7""\e[0m" "\033[1;30m""RuTorrent:""\e[0m" "Change the existing Rutorrent .htaccess to use" "\033[36m""~/private/.htpasswd""\e[0m"
     #
-    echo -e "\033[31m""8""\e[0m" "\033[1;30m""RuTorrent:""\e[0m" "Add or edit a user in the existing Rutorrent .htpasswd"
+    #echo -e "\033[31m""8""\e[0m" "\033[1;30m""RuTorrent:""\e[0m" "Add or edit a user in the existing Rutorrent .htpasswd"
     #
-    echo -e "\033[31m""9""\e[0m" "\033[1;30m""RuTorrent:""\e[0m" "Delete a user in the existing Rutorrent .htpasswd"
+    #echo -e "\033[31m""9""\e[0m" "\033[1;30m""RuTorrent:""\e[0m" "Delete a user in the existing Rutorrent .htpasswd"
     #
-    echo -e "\033[31m""10""\e[0m" "\033[1;30m""RuTorrent:""\e[0m" "Protect the" "\033[36m""/links""\e[0m" "directory using" "\033[36m""/rutorrent/.htpasswd""\e[0m"
+    #echo -e "\033[31m""10""\e[0m" "\033[1;30m""RuTorrent:""\e[0m" "Protect the" "\033[36m""/links""\e[0m" "directory using" "\033[36m""/rutorrent/.htpasswd""\e[0m"
     #
-    echo -e "\033[31m""11""\e[0m" "\033[1;30m""RuTorrent:""\e[0m" "List" "\033[36m""/rutorrent/.htpasswd""\e[0m" "users and their order"
+    #echo -e "\033[31m""11""\e[0m" "\033[1;30m""RuTorrent:""\e[0m" "List" "\033[36m""/rutorrent/.htpasswd""\e[0m" "users and their order"
     #
-    echo -e "\033[32m""Other tools section""\e[0m"
+    #echo -e "\033[32m""Other tools section""\e[0m"
     #
-    echo -e "\033[31m""12""\e[0m" "Change all" "\033[36m""public_html""\e[0m" ".htaccess to use the" "\033[36m""~/private/.htpasswd""\e[0m" "AuthFile path" "\033[33m""(if present)""\e[0m"
+    #echo -e "\033[31m""12""\e[0m" "Change all" "\033[36m""public_html""\e[0m" ".htaccess to use the" "\033[36m""~/private/.htpasswd""\e[0m" "AuthFile path" "\033[33m""(if present)""\e[0m"
     #
-    echo -e "\033[31m""13""\e[0m" "Change all" "\033[36m""public_html""\e[0m" ".htaccess to use the" "\033[36m""/rutorrent/.htpasswd""\e[0m" "AuthFile path" "\033[33m""(if present)""\e[0m"
+    #echo -e "\033[31m""13""\e[0m" "Change all" "\033[36m""public_html""\e[0m" ".htaccess to use the" "\033[36m""/rutorrent/.htpasswd""\e[0m" "AuthFile path" "\033[33m""(if present)""\e[0m"
     #
-    echo -e "\033[31m""14""\e[0m" "Change all" "\033[36m""public_html""\e[0m" ".htaccess to use a custom AuthFile path" "\033[33m""(if present)""\e[0m"
+    #echo -e "\033[31m""14""\e[0m" "Change all" "\033[36m""public_html""\e[0m" ".htaccess to use a custom AuthFile path" "\033[33m""(if present)""\e[0m"
     #
-    echo -e "\033[32m""Nginx specific options section""\e[0m"
+    #echo -e "\033[32m""Nginx specific options section""\e[0m"
     #
-    echo -e "\033[31m""15""\e[0m" "Protect the" "\033[36m""/links""\e[0m" "directory using the" "\033[36m""~/private/.htpasswd""\e[0m"
+    #echo -e "\033[31m""15""\e[0m" "Protect the" "\033[36m""/links""\e[0m" "directory using the" "\033[36m""~/private/.htpasswd""\e[0m"
     #
-    echo -e "\033[31m""16""\e[0m" "Protect the" "\033[36m""/links""\e[0m" "directory using the" "\033[36m""/rutorrent/.htpasswd""\e[0m"
+    #echo -e "\033[31m""16""\e[0m" "Protect the" "\033[36m""/links""\e[0m" "directory using the" "\033[36m""/rutorrent/.htpasswd""\e[0m"
     #
-    echo -e "\033[31m""17""\e[0m" "Change the rpc password only for the user \"rutorrent\" linked to your default rutorrent installation"
+    #echo -e "\033[31m""17""\e[0m" "Change the rpc password only for the user \"rutorrent\" linked to your default rutorrent installation"
     #
-    echo -e "\033[32m""Multi Rtorrent/Rutorrent specific options section""\e[0m"
+    #echo -e "\033[32m""Multi Rtorrent/Rutorrent specific options section""\e[0m"
     #
-    echo -e "\033[31m""18""\e[0m" "\033[1;30m""Multi Rtorrent/Rutorrent:""\e[0m" "Add or edit a user in the existing Rutorrent-suffix .htpasswd/nginx rpc"
+    #echo -e "\033[31m""18""\e[0m" "\033[1;30m""Multi Rtorrent/Rutorrent:""\e[0m" "Add or edit a user in the existing Rutorrent-suffix .htpasswd/nginx rpc"
     #
-    echo -e "\033[31m""19""\e[0m" "\033[1;30m""Multi Rtorrent/Rutorrent:""\e[0m" "Delete a user in the existing Rutorrent .htpasswd"
+    #echo -e "\033[31m""19""\e[0m" "\033[1;30m""Multi Rtorrent/Rutorrent:""\e[0m" "Delete a user in the existing Rutorrent .htpasswd"
     #
-    echo -e "\033[31m""20""\e[0m" "\033[1;30m""Multi Rtorrent/Rutorrent:""\e[0m" "List" "\033[36m""/rutorrent/.htpasswd""\e[0m" "users and their order"
+    #echo -e "\033[31m""20""\e[0m" "\033[1;30m""Multi Rtorrent/Rutorrent:""\e[0m" "List" "\033[36m""/rutorrent/.htpasswd""\e[0m" "users and their order"
     #
     #echo -e "\033[31m""21""\e[0m" "Change the rpc password only for the user \"rutorrent\" on the specified instance"
     #
