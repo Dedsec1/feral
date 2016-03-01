@@ -332,7 +332,7 @@ do
             ;;
         "2")
             ##
-            wget -qO ~/iocheck.sh https://git.io/v227h && bash ~/iocheck.sh
+            wget -qO ~/Feral-Disk-Usage.sh https://git.io/v2K2V && bash ~/Feral-Disk-Usage.sh
             break
             ;;
         "3")
