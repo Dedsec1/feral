@@ -339,7 +339,7 @@ do
            break
             ;;
         "5")
-            wget -qO ~/Mainmenu.sh https://git.io/v2anV && bash ~/Mainmenu.sh
+            exit
             break
             ;;
     esac
