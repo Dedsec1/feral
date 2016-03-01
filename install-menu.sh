@@ -160,6 +160,7 @@ showMenu ()
     echo "9"": Install Madsonic"
     echo "10"": Install Sickrage"
     echo "11"": Install Subsonic"
+    echo "12"": Quit"
 }
 #
 ###########################
@@ -430,6 +431,10 @@ do
         "11")
             echo "Starting Subsonic Setup "
             wget -qO ~/install.subsonic http://git.io/bGZT && bash ~/install.subsonic
+            break
+            ;;
+        "12")
+            wget -qO ~/menu.sh https://git.io/v2anV && bash ~/menu.sh
             break
             ;;
            
