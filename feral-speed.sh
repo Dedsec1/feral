@@ -1,6 +1,6 @@
 #!/bin/bash
 # Auto-reroute
-scriptversion="1.0.6"
+scriptversion="1.0.8"
 scriptname="auto-reroute"
 # Author adamaze
 #
