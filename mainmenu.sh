@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-################################################
-##### Basic Info Start ########################
-################################################
+############################
+##### Basic Info Start ####################
+##############################
 #
 # Script Author: Dedsec
 #
@@ -141,7 +141,7 @@ showMenu ()
 {
     echo -e "\033[32m""Feral Toolkit Menus""\e[0m"
     #
-    echo -e "\033[31m""1""\e[0m" "Slot Diagonsis Tools" "\033[36m""""\e[0m" """\e[0m"
+    echo -e "\033[31m""1""\e[0m" "Slot Diagnosis Tools" "\033[36m""""\e[0m" """\e[0m"
     #
     echo -e "\033[31m""2""\e[0m" "Software Installation Tools" "\033[36m""""\e[0m" ""
     #
@@ -406,7 +406,7 @@ then
                 ;;
     ##########
             "4") # Delete a user from your ~/private/.htpasswd
-                wget -qO ~/Rutorrent-tools.sh  https://git.io/v2Vug && bash ~/Rutorrent-tools.sh
+                wget -qO ~/Rutorrent-tools.sh https://git.io/v2oEw && bash ~/Rutorrent-tools.sh
                 ;;
     ##########
             "5") # Protect the /links directory using ~/private/.htpasswd
