@@ -378,8 +378,8 @@ then
 #### User Script Starts ####
 ############################
 #
-    echo -e "\033[32m""Hello $(whoami).""\e[0m" "This is the htpasswd user and password toolkit." "\e[0m"
-    echo -e "\033[33m""This toolkit is designed to complement the FAQ and it is not a replacement for the FAQ""\e[0m"
+    echo -e "\033[32m""Hello $(whoami).""\e[0m" "Welcome to the Feral Toolkit." "\e[0m"
+    echo -e "\033[33m""This toolkit is designed to help users doing various tasks quickly and efficiently.""\e[0m"
     echo
     #
     ###
