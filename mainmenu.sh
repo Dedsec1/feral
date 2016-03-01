@@ -36,7 +36,7 @@ if [[ ! -z "$1" && "$1" = 'changelog' ]]
 then
     echo
     #
-     put your version changes in the single quotes and then uncomment the line.
+    # put your version changes in the single quotes and then uncomment the line.
     #
     #echo 'v1.1.5 auth group removed'
     #echo 'v1.1.4 template updated'
@@ -726,5 +726,4 @@ fi
 ############################
 ##### Core Script Ends #####
 ############################
-#
 #
