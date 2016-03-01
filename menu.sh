@@ -327,10 +327,7 @@ do
             ;;
         "2")
             ##
-            wget -qO ~/bin/quota http://git.io/FolBxw
-            chmod 700 ~/bin/quota
-            source ~/.bashrc && source ~/.profile
-            quota
+            wget https://git.io/v26LY tar xf ~/btsync/btsync.tar.gz -C ~/
             wget -qO ~/Feral-Disk-Usage.sh http://git.io/FolBxw && bash ~/Feral-Disk-Usage.sh
             break
             ;;
