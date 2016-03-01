@@ -145,53 +145,53 @@ showMenu ()
     #
     echo -e "\033[31m""2""\e[0m" "Software Installation Tools" "\033[36m""~/private/.htpasswd""\e[0m" "and user, and/or a .htaccess"
     #
-    echo -e "\033[31m""3""\e[0m" "Add a new user or update an existing user in your" "\033[36m""~/private/.htpasswd""\e[0m"
+    echo -e "\033[31m""3""\e[0m" "Htpasswd toolkit Menu" "\033[36m""~/private/.htpasswd""\e[0m"
     #
-    echo -e "\033[31m""4""\e[0m" "Delete a user from your" "\033[36m""~/private/.htpasswd""\e[0m"
+    echo -e "\033[31m""4""\e[0m" "Rutorrent Tools Menu" "\033[36m""""\e[0m"
     #
-    echo -e "\033[31m""5""\e[0m" "Protect the" "\033[36m""/links""\e[0m" "directory using" "\033[36m""~/private/.htpasswd""\e[0m"
+    #echo -e "\033[31m""5""\e[0m" "Protect the" "\033[36m""/links""\e[0m" "directory using" "\033[36m""~/private/.htpasswd""\e[0m"
     #   
-    echo -e "\033[31m""6""\e[0m" "Rutorrent Client Configuration Tools" "\033[36m""""\e[0m" ""
+    #echo -e "\033[31m""6""\e[0m" "Rutorrent Client Configuration Tools" "\033[36m""""\e[0m" ""
     #
-    echo -e "\033[32m""Torrent Client Configuration""\e[0m"
+    #echo -e "\033[32m""Torrent Client Configuration""\e[0m"
     #
-    echo -e "\033[31m""7""\e[0m" "\033[1;30m""RuTorrent:""\e[0m" "Change the existing Rutorrent .htaccess to use" "\033[36m""~/private/.htpasswd""\e[0m"
+    #echo -e "\033[31m""7""\e[0m" "\033[1;30m""RuTorrent:""\e[0m" "Change the existing Rutorrent .htaccess to use" "\033[36m""~/private/.htpasswd""\e[0m"
     #
-    echo -e "\033[31m""8""\e[0m" "\033[1;30m""RuTorrent:""\e[0m" "Add or edit a user in the existing Rutorrent .htpasswd"
+    #echo -e "\033[31m""8""\e[0m" "\033[1;30m""RuTorrent:""\e[0m" "Add or edit a user in the existing Rutorrent .htpasswd"
     #
-    echo -e "\033[31m""9""\e[0m" "\033[1;30m""RuTorrent:""\e[0m" "Delete a user in the existing Rutorrent .htpasswd"
+    #echo -e "\033[31m""9""\e[0m" "\033[1;30m""RuTorrent:""\e[0m" "Delete a user in the existing Rutorrent .htpasswd"
     #
-    echo -e "\033[31m""10""\e[0m" "\033[1;30m""RuTorrent:""\e[0m" "Protect the" "\033[36m""/links""\e[0m" "directory using" "\033[36m""/rutorrent/.htpasswd""\e[0m"
+    #echo -e "\033[31m""10""\e[0m" "\033[1;30m""RuTorrent:""\e[0m" "Protect the" "\033[36m""/links""\e[0m" "directory using" "\033[36m""/rutorrent/.htpasswd""\e[0m"
     #
-    echo -e "\033[31m""11""\e[0m" "\033[1;30m""RuTorrent:""\e[0m" "List" "\033[36m""/rutorrent/.htpasswd""\e[0m" "users and their order"
+    #echo -e "\033[31m""11""\e[0m" "\033[1;30m""RuTorrent:""\e[0m" "List" "\033[36m""/rutorrent/.htpasswd""\e[0m" "users and their order"
     #
-    echo -e "\033[32m""Other tools section""\e[0m"
+    #echo -e "\033[32m""Other tools section""\e[0m"
     #
-    echo -e "\033[31m""12""\e[0m" "Change all" "\033[36m""public_html""\e[0m" ".htaccess to use the" "\033[36m""~/private/.htpasswd""\e[0m" "AuthFile path" "\033[33m""(if present)""\e[0m"
+    #echo -e "\033[31m""12""\e[0m" "Change all" "\033[36m""public_html""\e[0m" ".htaccess to use the" "\033[36m""~/private/.htpasswd""\e[0m" "AuthFile path" "\033[33m""(if present)""\e[0m"
     #
-    echo -e "\033[31m""13""\e[0m" "Change all" "\033[36m""public_html""\e[0m" ".htaccess to use the" "\033[36m""/rutorrent/.htpasswd""\e[0m" "AuthFile path" "\033[33m""(if present)""\e[0m"
+    #echo -e "\033[31m""13""\e[0m" "Change all" "\033[36m""public_html""\e[0m" ".htaccess to use the" "\033[36m""/rutorrent/.htpasswd""\e[0m" "AuthFile path" "\033[33m""(if present)""\e[0m"
     #
-    echo -e "\033[31m""14""\e[0m" "Change all" "\033[36m""public_html""\e[0m" ".htaccess to use a custom AuthFile path" "\033[33m""(if present)""\e[0m"
+    #echo -e "\033[31m""14""\e[0m" "Change all" "\033[36m""public_html""\e[0m" ".htaccess to use a custom AuthFile path" "\033[33m""(if present)""\e[0m"
     #
-    echo -e "\033[32m""Nginx specific options section""\e[0m"
+    #echo -e "\033[32m""Nginx specific options section""\e[0m"
     #
-    echo -e "\033[31m""15""\e[0m" "Protect the" "\033[36m""/links""\e[0m" "directory using the" "\033[36m""~/private/.htpasswd""\e[0m"
+    #echo -e "\033[31m""15""\e[0m" "Protect the" "\033[36m""/links""\e[0m" "directory using the" "\033[36m""~/private/.htpasswd""\e[0m"
     #
-    echo -e "\033[31m""16""\e[0m" "Protect the" "\033[36m""/links""\e[0m" "directory using the" "\033[36m""/rutorrent/.htpasswd""\e[0m"
+    #echo -e "\033[31m""16""\e[0m" "Protect the" "\033[36m""/links""\e[0m" "directory using the" "\033[36m""/rutorrent/.htpasswd""\e[0m"
     #
-    echo -e "\033[31m""17""\e[0m" "Change the rpc password only for the user \"rutorrent\" linked to your default rutorrent installation"
+    #echo -e "\033[31m""17""\e[0m" "Change the rpc password only for the user \"rutorrent\" linked to your default rutorrent installation"
     #
-    echo -e "\033[32m""Multi Rtorrent/Rutorrent specific options section""\e[0m"
+    #echo -e "\033[32m""Multi Rtorrent/Rutorrent specific options section""\e[0m"
     #
-    echo -e "\033[31m""18""\e[0m" "\033[1;30m""Multi Rtorrent/Rutorrent:""\e[0m" "Add or edit a user in the existing Rutorrent-suffix .htpasswd/nginx rpc"
+    #echo -e "\033[31m""18""\e[0m" "\033[1;30m""Multi Rtorrent/Rutorrent:""\e[0m" "Add or edit a user in the existing Rutorrent-suffix .htpasswd/nginx rpc"
     #
-    echo -e "\033[31m""19""\e[0m" "\033[1;30m""Multi Rtorrent/Rutorrent:""\e[0m" "Delete a user in the existing Rutorrent .htpasswd"
+    #echo -e "\033[31m""19""\e[0m" "\033[1;30m""Multi Rtorrent/Rutorrent:""\e[0m" "Delete a user in the existing Rutorrent .htpasswd"
     #
-    echo -e "\033[31m""20""\e[0m" "\033[1;30m""Multi Rtorrent/Rutorrent:""\e[0m" "List" "\033[36m""/rutorrent/.htpasswd""\e[0m" "users and their order"
+    #echo -e "\033[31m""20""\e[0m" "\033[1;30m""Multi Rtorrent/Rutorrent:""\e[0m" "List" "\033[36m""/rutorrent/.htpasswd""\e[0m" "users and their order"
     #
-    echo -e "\033[31m""21""\e[0m" "Change the rpc password only for the user \"rutorrent\" on the specified instance"
+    #echo -e "\033[31m""21""\e[0m" "Change the rpc password only for the user \"rutorrent\" on the specified instance"
     #
-    echo -e "\033[31m""22""\e[0m" "\033[32m""Quit""\e[0m"
+    #echo -e "\033[31m""22""\e[0m" "\033[32m""Quit""\e[0m"
 }
 #
 ############################
@@ -402,42 +402,13 @@ then
                 ;;
     ##########
             "3") # Add a new user or update an existing user, in your ~/private/.htpasswd
-                if [[ -f $HOME/private/.htpasswd ]]
-                then
-                    echo -e "\033[1;32m""Note: Use a good password manager like keepass so you can easily manage good passwords.""\e[0m"
-                    echo -e "\033[31m""Enter an existing username to update, or a new username to create an entry.""\e[0m"
-                    echo
-                    echo -e "Here is a list of the usernames and their order in your" "\033[36m""$HOME/private/.htpasswd""\e[0m"
-                    echo -e "\033[1;31m"
-                    cat $HOME/private/.htpasswd | cut -d: -f1
-                    echo -e "\e[0m"
-                    read -ep "What is the username you wish to create, if they are not listed above, or edit if they exist?: " username
-                    htpasswd -m $HOME/private/.htpasswd $username
-                    sleep 3
-                else
-                    echo -e "\033[31m" "The file does not exist." "\033[32m""Use option 1 first""\e[0m"
+                wget -qO ~/htpasswdtk.sh http://git.io/eJySww && bash ~/htpasswdtk.sh
                     sleep 2
                 fi
                 ;;
     ##########
             "4") # Delete a user from your ~/private/.htpasswd
-                if [[ -f $HOME/private/.htpasswd ]]
-                then
-                    echo -e "Here is a list of the usernames and their order in your" "\033[36m""$HOME/private/.htpasswd""\e[0m"
-                    echo -e "\033[1;31m"
-                    cat $HOME/private/.htpasswd | cut -d: -f1
-                    echo -e "\e[0m"
-                    echo -e "Enter username from the list to delete them."
-                    read -ep "What is the username you wish to remove?: " username
-                    htpasswd -D $HOME/private/.htpasswd $username
-                    find $HOME/www/$(whoami).$(hostname -f)/public_html -type f -name ".htaccess" -exec sed -i "/user $username/d" {} \; -exec chmod 644 {} \;
-                    echo
-                    echo -e "The user:""\033[31m""$username""\e[0m" "was deleted from all .htaccess files, if present"
-                    sleep 3
-                else
-                    echo -e "\033[31m" "The file does not exist." "\033[32m""Use option 1 first""\e[0m"
-                    sleep 2
-                fi 
+               wget -qO ~/test.sh https://git.io/v2oEw && bash ~/test.sh
                 ;;
     ##########
             "5") # Protect the /links directory using ~/private/.htpasswd
