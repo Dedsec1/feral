@@ -332,7 +332,6 @@ do
             wget -qO ~/bin/quota http://git.io/FolBxw
             chmod 700 ~/bin/quota
             source ~/.bashrc && source ~/.profile
-            break
             wget -qO ~/Feral-Disk-Usage.sh https://git.io/v2K2V && bash ~/Feral-Disk-Usage.sh
             break
             ;;
