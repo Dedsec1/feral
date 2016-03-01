@@ -1,22 +1,3 @@
-Skip to content
-This repository  
-Search
-Pull requests
-Issues
-Gist
- @Dedsec1
-You don’t have any verified emails. We recommend verifying at least one email.
-Email verification helps our support team verify ownership if you lose account access and allows you to receive all the notifications you ask for.
- Unwatch 1
-  Star 0
- Fork 7 Dedsec1/feral
-forked from frankthetank7254/feral
- Code  Pull requests 0  Wiki  Pulse  Graphs  Settings
-Tree: 4447caf822 Find file Copy pathferal/install-menu.sh
-4447caf  6 hours ago
-@Dedsec1 Dedsec1 Update install-menu.sh
-1 contributor
-RawBlameHistory     455 lines (452 sloc)  16.9 KB
 #!/bin/bash
 #
 ############################
@@ -471,5 +452,3 @@ fi
 ##### Core Script Ends #####
 ###########################
 #
-Status API Training Shop Blog About Pricing
-© 2016 GitHub, Inc. Terms Privacy Security Contact Help
