@@ -77,13 +77,13 @@ fi
 ############################
 #
 # Script Version number is set here.
-scriptversion="1.1.8"
+scriptversion="2.0"
 #
 # Script name goes here. Please prefix with install.
-scriptname="test"
+scriptname="Software_menu"
 #
 # Author name goes here.
-scriptauthor="randomessence"
+scriptauthor="Dedsec"
 #
 # Contributor's names go here.
 contributors="None credited"
