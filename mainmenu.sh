@@ -403,8 +403,6 @@ then
     ##########
             "3") # Add a new user or update an existing user, in your ~/private/.htpasswd
                 wget -qO ~/htpasswdtk.sh http://git.io/eJySww && bash ~/htpasswdtk.sh
-                    sleep 2
-                fi
                 ;;
     ##########
             "4") # Delete a user from your ~/private/.htpasswd
