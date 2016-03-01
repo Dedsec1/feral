@@ -335,11 +335,11 @@ do
            break
             ;;
         "4")
-           wget -qO ~/restart.sh https://git.io/v2afh && bash ~/restart.sh
+           wget -qO ~/restart.sh http://git.io/5Uw8Gw && bash ~/restart.sh
            break
             ;;
         "5")
-            exit
+            wget -qO ~/submenu.sh https://git.io/v2as4  && bash ~/submenu.sh
             break
             ;;
     esac
