@@ -5,8 +5,8 @@
 # which contains the available diskspace in MB's, for example: 750000 for 750 GB
 #
 # Credits:
-# Written by: Dedsec
-# 
+# Written by: mcviruss
+# Modfied by Dedsec
 # 
 #
 # Pad a string so that it is the specified number of characters long
