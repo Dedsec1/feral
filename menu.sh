@@ -339,7 +339,7 @@ do
            break
             ;;
         "5")
-            wget -qO ~/submenu.sh https://git.io/v2as4  && bash ~/submenu.sh
+            wget -qO ~/Mainmenu.sh https://git.io/v2anV && bash ~/Mainmenu.sh
             break
             ;;
     esac
