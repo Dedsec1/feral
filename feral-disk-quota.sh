@@ -38,7 +38,7 @@ function format_filesize() {
 }
 
 # Lookup used diskspace and available diskspace
-used=$(du -s --si -B 1MB $/media/sdai1/tumpie | cut -f 1);
+used=$(du -s --si -B 1MB $HOME | cut -f 1);
 quota=$(cat ~/.quotaspace);
 available=$(echo "$quota-$used" | bc );
 exceeded=$(echo "$used-$quota" | bc );
