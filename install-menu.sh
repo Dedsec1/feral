@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-############################
-##### Basic Info Start ########
-###########################
+###################################################
+##### Basic Info Start ######################
+#######################################
 #
 # Script Author: Dedsec
 #
@@ -160,7 +160,6 @@ showMenu ()
     echo "9"": Install Madsonic"
     echo "10"": Install Sickrage"
     echo "11"": Install Subsonic"
-    echo "12"": "Quit"
 }
 #
 ###########################
@@ -334,6 +333,11 @@ do
         "1")
             echo
             wget -qO ~/install.autodl.sh http://git.io/oTUCMg && bash ~/install.autodl.sh
+            echo  "if you see the following error: 
+            Error downloading files. Make sure autodl-irssi is started and configured properly (eg. password, port number): 
+            Error getting files listing: Error: Could not connect: (111) Connection refused."
+            echo "You simply need to run this menu choice again to apply the fix.
+            Important note: This will not delete or change any of your configured settings. It will just update autodl and apply the fix."
             break
             ;;
         "2")
@@ -428,10 +432,6 @@ do
             wget -qO ~/install.subsonic http://git.io/bGZT && bash ~/install.subsonic
             break
             ;;
-        "12")
-            echo "Go Back to Main Menu "
-            wget -qO ~/Mainmenu.sh https://git.io/v2anV  && bash ~/Mainmenu.sh
-            break
            
     esac
 done
@@ -441,11 +441,14 @@ done
 ############################
 #
 else
-echo  "You chose to exit after updating the scripts."
-cd && bash
-exit
+    echo -e "You chose to exit after updating the scripts."
+    echo
+    cd && bash
+    exit
 fi
 #
 ############################
 ##### Core Script Ends #####
 ###########################
+#
+#
