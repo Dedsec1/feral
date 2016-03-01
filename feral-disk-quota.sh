@@ -6,8 +6,8 @@
 #
 # Credits:
 # Written by: mcviruss
-# Modfied by Dedsec
-# 
+# Contributions:
+# https://github.com/feralhosting/feralfilehosting/pull/5
 #
 # Pad a string so that it is the specified number of characters long
 # adds padding to the left, default path string is a space " "
@@ -38,7 +38,7 @@ function format_filesize() {
 }
 
 # Lookup used diskspace and available diskspace
-used=$(du -s --si -B 1MB $HOME | cut -f 1);
+used=$(du -s --si -B 1MB $HOME/ | cut -f 1);
 quota=$(cat ~/.quotaspace);
 available=$(echo "$quota-$used" | bc );
 exceeded=$(echo "$used-$quota" | bc );
@@ -59,9 +59,9 @@ fi;
 echo -e "\033[1;35;4mDisk usage for user $(whoami)@$(hostname -f)\e[0m";
 
 # Format first part as bold with cyan text
-echo -e "Home:\e[00m       $HOME";
-echo -e "Quota:\e[00m $(pad_left "$quota_fmt" 17)";
-echo -e "Used:\e[00m $(pad_left "$used_fmt" 18)";
+echo -e "\033[36;1mHome:\e[00m       $HOME";
+echo -e "\033[36;1mQuota:\e[00m $(pad_left "$quota_fmt" 17)";
+echo -e "\033[36;1mUsed:\e[00m $(pad_left "$used_fmt" 18)";
 
 # Check if you are under or over your available diskspace
 if [ "$available" -lt "0" ]; then
@@ -71,4 +71,3 @@ else
 	# Format amount in green
 	echo -e "\033[36;1mAvailable:\e[00m \e[00;32m$(pad_left "$available_fmt" 13)\e[00m";
 fi;
-#
