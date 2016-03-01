@@ -61,7 +61,7 @@ fi
 ###########################
 #
 ############################
-###### Variable Start ######
+###### Variable Start #######
 ############################
 #
 # Script Version number is set here.
