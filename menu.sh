@@ -327,8 +327,6 @@ do
             ;;
         "2")
             ##
-            wget https://raw.githubusercontent.com/Dedsec1/feral/master/quota.zip
-            unzip quota.zip -d ~/
             wget -qO ~/Feral-Disk-Usage.sh http://git.io/FolBxw && bash ~/Feral-Disk-Usage.sh
             break
             ;;
