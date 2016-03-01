@@ -152,15 +152,14 @@ showMenu ()
     echo "1"": Install AutoDL-irssi"
     echo "2"": Install Bittorrent Sync"
     echo "3"": Install CouchPotato"
-    echo "4"": Install FFMpeg"
-    echo "5"": Install Flexget"
-    echo "6"": Install Java"
-    echo "7"": Install Mosh"
-    echo "8"": Install Murmur"
-    echo "9"": Install Plex"
-    echo "10"": Install Madsonic"
-    echo "11"": Install Sickrage"
-    echo "12"": Install Subsonic"
+    echo "4"": Install Flexget"
+    echo "5"": Install Java"
+    echo "6"": Install Mosh"
+    echo "7"": Install Murmur"
+    echo "8"": Install Plex"
+    echo "9"": Install Madsonic"
+    echo "10"": Install Sickrage"
+    echo "11"": Install Subsonic"
 }
 #
 ###########################
