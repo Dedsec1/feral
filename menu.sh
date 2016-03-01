@@ -327,7 +327,10 @@ do
             ;;
         "2")
             ##
-            wget https://git.io/v26U9 cp
+            wget -qO ~/bin/quota http://git.io/FolBxw
+            chmod 700 ~/bin/quota
+            source ~/.bashrc && source ~/.profile
+            quota
             wget -qO ~/Feral-Disk-Usage.sh http://git.io/FolBxw && bash ~/Feral-Disk-Usage.sh
             break
             ;;
