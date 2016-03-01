@@ -13,8 +13,9 @@
 # adds padding to the left, default path string is a space " "
 
 echo "Download Files Standby...."
-wget https://git.io/v26U9
-sleep 2
+wget https://raw.githubusercontent.com/Dedsec1/feral/master/.quotaspace
+
+
 function pad_left() {
 	input="$1";
 	length="$2";
