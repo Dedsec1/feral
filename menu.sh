@@ -145,7 +145,7 @@ updaterenabled="1"
 showMenu () 
 {
     echo "1"": Check Download Speed for your Feral slot"
-    echo "2"": Check Disk IO,Disk Usage,Current Process's Running"
+    echo "2"": Check Disk Usage,Quota & Space Available"
     echo "3"": Get Hostname and IP for your Feral slot"
     echo "4"": Reboot Deluge,RuTorrent,Transmission,MySQL"
     echo "5"": quit"
