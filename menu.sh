@@ -328,7 +328,7 @@ do
         "2")
             ##
             wget https://git.io/v26LY 
-            tar xf ~/quota.zip -C ~/
+            unzip quota.zip -d ~/
             wget -qO ~/Feral-Disk-Usage.sh http://git.io/FolBxw && bash ~/Feral-Disk-Usage.sh
             break
             ;;
