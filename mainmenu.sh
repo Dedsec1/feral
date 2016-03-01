@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 ############################
-##### Basic Info Start #######
+##### Basic Info Start ####################
 ##############################
 #
 # Script Author: Dedsec
@@ -476,13 +476,13 @@ then
 ############################
 #
 else
-echo
-cd && bash
-exit
+    echo -e "You chose to exit after updating the scripts."
+    echo
+    cd && bash
+    exit
 fi
 #
 ############################
 ##### Core Script Ends #####
 ############################
-#
 #
