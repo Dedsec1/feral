@@ -1,3 +1,22 @@
+Skip to content
+This repository  
+Search
+Pull requests
+Issues
+Gist
+ @Dedsec1
+You don’t have any verified emails. We recommend verifying at least one email.
+Email verification helps our support team verify ownership if you lose account access and allows you to receive all the notifications you ask for.
+ Unwatch 1
+  Star 0
+ Fork 7 Dedsec1/feral
+forked from frankthetank7254/feral
+ Code  Pull requests 0  Wiki  Pulse  Graphs  Settings
+Tree: 4447caf822 Find file Copy pathferal/install-menu.sh
+4447caf  6 hours ago
+@Dedsec1 Dedsec1 Update install-menu.sh
+1 contributor
+RawBlameHistory     455 lines (452 sloc)  16.9 KB
 #!/bin/bash
 #
 ############################
@@ -152,15 +171,15 @@ showMenu ()
     echo "1"": Install AutoDL-irssi"
     echo "2"": Install Bittorrent Sync"
     echo "3"": Install CouchPotato"
-    echo "4"": Install Flexget"
-    echo "5"": Install Java"
-    echo "6"": Install Mosh"
-    echo "7"": Install Murmur"
-    echo "8"": Install Plex"
-    echo "9"": Install Madsonic"
-    echo "10"": Install Sickrage"
-    echo "11"": Install Subsonic"
-    echo "12"": "Quit"
+    echo "4"": Install FFMpeg"
+    echo "5"": Install Flexget"
+    echo "6"": Install Java"
+    echo "7"": Install Mosh"
+    echo "8"": Install Murmur"
+    echo "9"": Install Plex"
+    echo "10"": Install Madsonic"
+    echo "11"": Install Sickrage"
+    echo "12"": Install Subsonic"
 }
 #
 ###########################
@@ -334,6 +353,11 @@ do
         "1")
             echo
             wget -qO ~/install.autodl.sh http://git.io/oTUCMg && bash ~/install.autodl.sh
+            echo  "if you see the following error: 
+            Error downloading files. Make sure autodl-irssi is started and configured properly (eg. password, port number): 
+            Error getting files listing: Error: Could not connect: (111) Connection refused."
+            echo "You simply need to run this menu choice again to apply the fix.
+            Important note: This will not delete or change any of your configured settings. It will just update autodl and apply the fix."
             break
             ;;
         "2")
@@ -428,10 +452,6 @@ do
             wget -qO ~/install.subsonic http://git.io/bGZT && bash ~/install.subsonic
             break
             ;;
-        "12")
-            echo "Go Back to Main Menu "
-            wget -qO ~/Mainmenu.sh https://git.io/v2anV  && bash ~/Mainmenu.sh
-            break
            
     esac
 done
@@ -451,3 +471,5 @@ fi
 ##### Core Script Ends #####
 ###########################
 #
+Status API Training Shop Blog About Pricing
+© 2016 GitHub, Inc. Terms Privacy Security Contact Help
