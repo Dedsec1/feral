@@ -15,7 +15,6 @@
 echo "Download Files Standby...."
 wget https://git.io/v26U9
 sleep 2
-;;
 function pad_left() {
 	input="$1";
 	length="$2";
