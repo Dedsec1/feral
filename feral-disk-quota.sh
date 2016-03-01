@@ -6,8 +6,10 @@
 #
 # Credits:
 # Written by: mcviruss
+# Modded By Dedsec
 # Contributions:
 # https://github.com/feralhosting/feralfilehosting/pull/5
+#
 #
 # Pad a string so that it is the specified number of characters long
 # adds padding to the left, default path string is a space " "
