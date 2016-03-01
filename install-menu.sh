@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 ############################
-##### Basic Info Start ################
+##### Basic Info Start ########
 ###########################
 #
 # Script Author: Dedsec
@@ -77,7 +77,7 @@ fi
 ############################
 #
 # Script Version number is set here.
-scriptversion="2.0"
+scriptversion="2.0.0"
 #
 # Script name goes here. Please prefix with install.
 scriptname="Software_menu"
@@ -437,7 +437,7 @@ do
             break
             ;;
         "11")
-            echo "Starting Subsonic "
+            echo "Starting Subsonic Setup "
             wget -qO ~/install.subsonic http://git.io/bGZT && bash ~/install.subsonic
             break
             ;;
