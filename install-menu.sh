@@ -77,7 +77,7 @@ fi
 ############################
 #
 # Script Version number is set here.
-scriptversion="2.0.0"
+scriptversion="2.0.1"
 #
 # Script name goes here. Please prefix with install.
 scriptname="Software_menu"
