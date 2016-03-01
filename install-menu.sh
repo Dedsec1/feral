@@ -431,12 +431,12 @@ do
             http://username.server.feralhosting.com:portnumber"
             break
             ;;
-        "9")
+        "10")
             echo "Starting Madsonic Setup"
             wget -qO ~/install.madsonic http://git.io/Eq97bg && bash ~/install.madsonic
             break
             ;;
-        "10")
+        "11")
             echo "Starting Subsonic "
             wget -qO ~/install.subsonic http://git.io/bGZT && bash ~/install.subsonic
             break
