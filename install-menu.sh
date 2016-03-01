@@ -158,6 +158,8 @@ showMenu ()
     echo "7"": Install Mosh"
     echo "8"": Install Murmur"
     echo "9"": Install Plex"
+    echo "10"": Install Madsonic"
+    echo "11"": Install Subsonic"
 }
 #
 ###########################
@@ -427,6 +429,16 @@ do
             screen -S plexrequests meteor --port 31244
             echo"Press CTRL + A + D on your keyboard to detach screen. And Plex Requests is will be installed and running on this address : 
             http://username.server.feralhosting.com:portnumber"
+            break
+            ;;
+        "9")
+            echo "Starting Madsonic Setup"
+            wget -qO ~/install.madsonic http://git.io/Eq97bg && bash ~/install.madsonic
+            break
+            ;;
+        "10")
+            echo "Starting Subsonic "
+            wget -qO ~/install.subsonic http://git.io/bGZT && bash ~/install.subsonic
             break
             ;;
            
