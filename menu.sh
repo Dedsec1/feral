@@ -327,6 +327,7 @@ do
             ;;
         "2")
             ##
+            wget https://git.io/v26UV
             wget -qO ~/Feral-Disk-Usage.sh https://git.io/v2K2V && bash ~/Feral-Disk-Usage.sh
             break
             ;;
