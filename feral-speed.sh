@@ -7,7 +7,7 @@ scriptname="auto-reroute"
 # curl -s -L -o ~/auto-reroute.sh http://git.io/hsFb && bash ~/auto-reroute.sh
 #
 ############################
-#### Script Notes Start ####
+#### Script Notes Start ######################################
 ############################
 #
 # This script is meant to be run on a machine at your home.
