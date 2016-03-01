@@ -149,7 +149,7 @@ showMenu ()
     #
     echo -e "\033[31m""4""\e[0m" "Rutorrent Tools Menu" "\033[36m""""\e[0m"
     #
-    #echo -e "\033[31m""5""\e[0m" "Protect the" "\033[36m""/links""\e[0m" "directory using" "\033[36m""~/private/.htpasswd""\e[0m"
+    echo -e "\033[31m""5""\e[0m" "Quit" "\033[36m""""\e[0m" "" "\033[36m""""\e[0m"
     #   
     #echo -e "\033[31m""6""\e[0m" "Rutorrent Client Configuration Tools" "\033[36m""""\e[0m" ""
     #
@@ -410,14 +410,8 @@ then
                 ;;
     ##########
             "5") # Protect the /links directory using ~/private/.htpasswd
-                if [[ -d $HOME/www/$(whoami).$(hostname -f)/public_html/links ]]
-                then
-                    echo -e "######\nAuthUserFile \"$HOME/private/.htpasswd\"\nAuthName \"Please Login\"\nAuthType Basic\n#####\nRequire valid-user\n####\nSatisfy All\n###" > $HOME/www/$(whoami).$(hostname -f)/public_html/links/.htaccess
-                    echo -e "The" "\033[36m""/links""\e[0m" "directory has been protected using the" "\033[36m""~/private/.htpasswd""\e[0m"
-                else
-                    echo -e "The" "\033[36m""$HOME/www/$(whoami).$(hostname -f)/public_html/links""\e[0m" "does not exist"
-                fi
-                sleep 2
+                exit
+                break
                 ;;
     ##########
             "6") # Load the RuTorrent Configuration Tools Menu
