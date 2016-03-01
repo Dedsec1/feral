@@ -46,7 +46,7 @@ scriptname="auto-reroute"
 #
 #
 routes=(0.0.0.0 130.117.255.36 77.67.64.81 213.19.196.233 81.20.64.101 81.20.69.197 185.21.219.2332 )
-route_names=(Default Cogent GTT Level3 NTT#1 NTT#2)
+route_names=(Default Cogent GTT Level3 NTT#1 NTT#2 Telia)
 #
 test_files=(https://feral.io/test.bin https://cogent-1.feral.io/test.bin https://gtt-1.feral.io/test.bin https://level3.feral.io/test.bin https://ntt-1.feral.io/test.bin https://ntt-2.feral.io/test.bin https://telia.feral.io/test.bin)
 count=-1
