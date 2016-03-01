@@ -143,9 +143,9 @@ showMenu ()
     #
     echo -e "\033[31m""1""\e[0m" "Slot Diagonsis Tools" "\033[36m""""\e[0m" """\e[0m"
     #
-    echo -e "\033[31m""2""\e[0m" "Software Installation Tools" "\033[36m""~/private/.htpasswd""\e[0m" "and user, and/or a .htaccess"
+    echo -e "\033[31m""2""\e[0m" "Software Installation Tools" "\033[36m""""\e[0m" ""
     #
-    echo -e "\033[31m""3""\e[0m" "Htpasswd toolkit Menu" "\033[36m""~/private/.htpasswd""\e[0m"
+    echo -e "\033[31m""3""\e[0m" "Htpasswd toolkit Menu" "\033[36m""""\e[0m"
     #
     echo -e "\033[31m""4""\e[0m" "Rutorrent Tools Menu" "\033[36m""""\e[0m"
     #
@@ -406,7 +406,7 @@ then
                 ;;
     ##########
             "4") # Delete a user from your ~/private/.htpasswd
-               wget -qO ~/test.sh https://git.io/v2oEw && bash ~/test.sh
+                wget -qO ~/test.sh https://git.io/v2oEw && bash ~/test.sh
                 ;;
     ##########
             "5") # Protect the /links directory using ~/private/.htpasswd
