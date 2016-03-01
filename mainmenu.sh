@@ -38,23 +38,23 @@ then
     #
     # put your version changes in the single quotes and then uncomment the line.
     #
-    echo 'v1.1.5 auth group removed'
-    echo 'v1.1.4 template updated'
-    echo 'v1.1.2 template updated'
-    echo '1.1.1 nginx rcp specific options for default and multple instances. tweaked the way option 18 works.'
-    echo '1.1.0 Changes to Authname generation to avoid conflict or allow single login'
-    echo '1.0.5 multi rtorrent/rutorrent options'
-    echo '1.0.4 nginx /links and apache /links options added'
-    echo '1.0.3 Updater included.'
-    echo '1.0.2 Better checks for option 1 with explanations on htaccess'
-    echo '1.0.1 wgets itself and puts it in the ~/bin with 700. Added files exist checks for all htpasswd calls. Cosmetics'
-    echo '1.0.0 A working and functional script.'
-    echo 'v0.5.0 Main options created and refined producing a usable script'
-    echo 'v0.0.1 - 0.0.1 Initial Version'
+    #echo 'v1.1.5 auth group removed'
+    #echo 'v1.1.4 template updated'
+    #echo 'v1.1.2 template updated'
+    #echo '1.1.1 nginx rcp specific options for default and multple instances. tweaked the way option 18 works.'
+    #echo '1.1.0 Changes to Authname generation to avoid conflict or allow single login'
+    #echo '1.0.5 multi rtorrent/rutorrent options'
+    #echo '1.0.4 nginx /links and apache /links options added'
+    #echo '1.0.3 Updater included.'
+    #echo '1.0.2 Better checks for option 1 with explanations on htaccess'
+    #echo '1.0.1 wgets itself and puts it in the ~/bin with 700. Added files exist checks for all htpasswd calls. Cosmetics'
+    #echo '1.0.0 A working and functional script.'
+    #echo 'v0.5.0 Main options created and refined producing a usable script'
+    #echo 'v0.0.1 - 0.0.1 Initial Version'
     #
-    echo
-    exit
-fi
+    #echo
+    #exit
+#fi
 #
 ############################
 ### Version History Ends ###
@@ -127,7 +127,7 @@ gitissue="https://github.com/feralhosting/feralfilehosting/issues/new"
 ############################
 #
 # Disables the built in script updater permanently by setting this variable to 0.
-updaterenabled="0"
+updaterenabled="1"
 #
 ############################
 ####### Variable End #######
