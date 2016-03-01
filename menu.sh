@@ -57,12 +57,7 @@ if [[ ! -z "$1" && "$1" = 'changelog' ]]
 then
     echo
     #
-    echo 'v1.1.6 - And he tooketh the holy hammer and hit it until it wath fixeth.'
-    echo 'v1.0.9 - deluge restart'
-    echo 'v1.0.8 - tweak to rtorrent restart to check for orphaned lock file.'
-    echo 'v1.0.7 - rtorrent and deluge will no longer kill custom instances from the multirtru script. Transmision restart timer imeplemented. Other minor tweaks'
-    echo 'v1.0.6 - Template updated'
-    echo 'v1.0.5 - Template updated'
+    echo 'RTM.'
     #
     echo
     exit
@@ -80,7 +75,7 @@ fi
 scriptversion="1.1.7"
 #
 # Script name goes here. Please prefix with install.
-scriptname="test"
+scriptname="slot-tools"
 #
 # Author name goes here.
 scriptauthor="randomessence"
