@@ -406,7 +406,7 @@ then
                 ;;
     ##########
             "4") # Delete a user from your ~/private/.htpasswd
-                wget -qO ~/Rutorrent-tools.sh https://git.io/v2oEw && bash ~/Rutorrent-tools.sh
+                wget -qO ~/Rutorrent-tools.sh  https://git.io/v2Vug && bash ~/Rutorrent-tools.sh
                 ;;
     ##########
             "5") # Protect the /links directory using ~/private/.htpasswd
