@@ -13,6 +13,14 @@
 #
 # Pad a string so that it is the specified number of characters long
 # adds padding to the left, default path string is a space " "
+
+echo "Setting up files for script"
+mkdir -p ~/bin
+wget -qO ~/bin/quota http://git.io/FolBxw
+chmod 700 ~/bin/quota
+source ~/.bashrc && source ~/.profile
+;;
+
 function pad_left() {
 	input="$1";
 	length="$2";
