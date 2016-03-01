@@ -158,8 +158,9 @@ showMenu ()
     echo "7"": Install Murmur"
     echo "8"": Install Plex"
     echo "9"": Install Madsonic"
-    echo "10"": Install Sickrage"
-    echo "11"": Install Subsonic"
+    echo "10"":Install Sickrage"
+    echo "11"":Install Subsonic"
+    echo "12"": "Quit"
 }
 #
 ###########################
@@ -430,6 +431,11 @@ do
         "11")
             echo "Starting Subsonic Setup "
             wget -qO ~/install.subsonic http://git.io/bGZT && bash ~/install.subsonic
+            break
+            ;;
+        "12")
+            echo "Quit"
+            exit
             break
             ;;
            
