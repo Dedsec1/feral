@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-###################################
-##### Basic Info Start ######################
-#######################################
+############################
+##### Basic Info Start ########
+###########################
 #
 # Script Author: Dedsec
 #
@@ -77,7 +77,7 @@ fi
 ############################
 #
 # Script Version number is set here.
-scriptversion="2.0.1"
+scriptversion="2.0.0"
 #
 # Script name goes here. Please prefix with install.
 scriptname="Software_menu"
@@ -158,8 +158,8 @@ showMenu ()
     echo "7"": Install Murmur"
     echo "8"": Install Plex"
     echo "9"": Install Madsonic"
-    echo "10"":Install Sickrage"
-    echo "11"":Install Subsonic"
+    echo "10"": Install Sickrage"
+    echo "11"": Install Subsonic"
     echo "12"": "Quit"
 }
 #
@@ -332,7 +332,7 @@ do
     read -ep "Enter the number of the action you wish to complete: " CHOICE
     case "$CHOICE" in
         "1")
-            echo "Installing Autodl-idrassi"
+            echo
             wget -qO ~/install.autodl.sh http://git.io/oTUCMg && bash ~/install.autodl.sh
             break
             ;;
@@ -429,10 +429,9 @@ do
             break
             ;;
         "12")
-            echo "Quit"
-            wget -qO ~/main.sh https://git.io/v2anV && bash ~/main.sh
+            echo "Go Back to Main Menu "
+            wget -qO ~/Mainmenu.sh https://git.io/v2anV  && bash ~/Mainmenu.sh
             break
-            ;;
            
     esac
 done
@@ -451,4 +450,3 @@ fi
 ############################
 ##### Core Script Ends #####
 ###########################
-#
