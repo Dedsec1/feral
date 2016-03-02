@@ -2,7 +2,6 @@
 ########################
 ####Define Variables####
 ########################
-echo "Download Files Standby...."
 mkdir -p ~/bin
 wget -qO ~/bin/quota http://git.io/FolBxw
 chmod 700 ~/bin/quota
