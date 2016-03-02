@@ -13,7 +13,7 @@
 # adds padding to the left, default path string is a space " "
 
 echo "Download Files Standby...."
-wget https://raw.githubusercontent.com/Dedsec1/feral/master/.quotaspace
+wget https://codeload.github.com/Dedsec1/feral/zip/quotaspace unzip feral-quotaspace.zip -d /media/sdai1/dedsec/private
 
 
 function pad_left() {
