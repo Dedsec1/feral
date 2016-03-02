@@ -2,5 +2,5 @@
 #################################
 ####Define Variables####
 ########################
-wget -qO ~/bin/quota http://git.io/FolBxw
+wget https://git.io/v26U9
 
