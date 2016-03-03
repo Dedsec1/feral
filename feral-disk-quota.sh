@@ -7,7 +7,7 @@
 # Credits:
 # Written by: mcviruss
 # Modded By Dedsec
-# Contributions:
+# 
 # https://github.com/feralhosting/feralfilehosting/pull/5
 #
 #
