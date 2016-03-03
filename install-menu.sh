@@ -158,9 +158,9 @@ showMenu ()
     echo "7"": Install Murmur"
     echo "8"": Install Plex"
     echo "9"": Install Madsonic"
-    echo "10"": Install Sickrage"
-    echo "11"": Install Subsonic"
-    echo "12"":Quit"
+    echo "10"":Install Sickrage"
+    echo "11"":Install Subsonic"
+    echo "12"": Quit"
 }
 #
 ###########################
