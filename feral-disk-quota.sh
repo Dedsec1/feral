@@ -1,7 +1,7 @@
 #!/bin/bash
 # This script outputs the available quota in a nice format.
 #
-# requirements: a file called .quotaspace in home directory
+# requirements: a file called .quotaspace in home directory..
 # which contains the available diskspace in MB's, for example: 750000 for 750 GB
 #
 # Credits:
