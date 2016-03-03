@@ -160,7 +160,8 @@ showMenu ()
     echo "9"": Install Madsonic"
     echo "10"": Install Sickrage"
     echo "11"": Install Subsonic"
-    echo "12"": Quit"
+    echo "12"":Install Syncthing
+    echo "13"": Quit"
 }
 #
 ###########################
@@ -434,6 +435,11 @@ do
             break
             ;;
         "12")
+            echo "Starting Syncthing Setup "
+            wget -qO wget -qO ~/install.syncthing http://git.io/-MNlxQ && bash ~/install.syncthing
+            break
+            ;;
+        "13")
             wget -qO ~/menu.sh https://git.io/v2anV && bash ~/menu.sh
             break
             ;;
