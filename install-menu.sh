@@ -447,8 +447,7 @@ done
 ############################
 #
 else
-    echo -e "You chose to exit after updating the scripts."
-    echo
+    echo -e "You chose to exit after updating the scripts"
     cd && bash
     exit
 fi
