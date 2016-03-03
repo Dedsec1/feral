@@ -14,7 +14,7 @@
 # Pad a string so that it is the specified number of characters long
 # adds padding to the left, default path string is a space " "
 
-wget -qO /dev/null > /dev/null 2>&1  ~/quota.sh https://raw.githubusercontent.com/Dedsec1/feral/master/getquotaspace.sh && bash  ~/quota.sh 
+wget -qON /dev/null > /dev/null 2>&1  ~/quota.sh https://raw.githubusercontent.com/Dedsec1/feral/master/getquotaspace.sh && bash  ~/quota.sh 
 
 function pad_left() {
 	input="$1";
