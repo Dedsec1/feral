@@ -442,4 +442,4 @@ do
     esac
 done
 #
-eof
+fi;
