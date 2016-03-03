@@ -332,8 +332,8 @@ do
     echo
     read -ep "Enter the number of the action you wish to complete: " CHOICE
     case "$CHOICE" in
-        "1")
-            echo
+        "1")##
+            echo "Installing Autodl-idrassi"
             wget -qO ~/install.autodl.sh http://git.io/oTUCMg && bash ~/install.autodl.sh
             break
             ;;
