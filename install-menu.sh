@@ -157,11 +157,12 @@ showMenu ()
     echo "6"": Install Mosh"
     echo "7"": Install Murmur"
     echo "8"": Install Plex"
-    echo "9"": Install Madsonic"
-    echo "10"":Install Sickrage"
-    echo "11"":Install Subsonic"
-    echo "12"":Install Syncthing"
-    echo "13"": Quit"
+    echo "9"": Install Plowshare"
+    echo "10"": Install Madsonic"
+    echo "11"":Install Sickrage"
+    echo "12"":Install Subsonic"
+    echo "13"":Install Syncthing"
+    echo "14"": Quit"
 }
 #
 ###########################
@@ -420,26 +421,31 @@ do
             break
             ;;
         "9")
+            echo "Starting Plowshare Setup"
+            mkdir -p ~/bin && bash
+            git clone https://github.com/mcrapet/plowshare.git ~/.plowshare-source && cd ~/.plowshare-source
+            make install PREFIX=$HOME && cd && rm -rf .plowshare-source
+        "10")
             echo "Starting Madsonic Setup"
             wget -qO ~/install.madsonic http://git.io/Eq97bg && bash ~/install.madsonic
             break
             ;;
-        "10")
+        "11")
             echo "Starting Sickrage Setup "
             wget -qO ~/install.subsonic http://git.io/bGZT && bash ~/install.subsonic
             break
             ;;
-        "11")
+        "12")
             echo "Starting Subsonic Setup "
             wget -qO ~/install.subsonic http://git.io/bGZT && bash ~/install.subsonic
             break
             ;;
-        "12")
+        "13")
             echo "Starting Syncthing Setup"
             https://www.feralhosting.com/faq/view?question=285
             break
             ;;
-        "13")
+        "14")
             echo "Quit"
             exit
             break
