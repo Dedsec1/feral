@@ -360,7 +360,10 @@ do
             ;;
         "4")
              echo "Starting Dropbox Setup"
-             wget -qO ~/dropbox.sh https://raw.githubusercontent.com/Dedsec1/feral/master/dropbox.sh ~/dropbox.sh
+             wget -qO ~/dropbox.tar.gz "http://www.dropbox.com/download/?plat=lnx.x86_64" && tar -xzf dropbox.tar.gz
+            wget -qO ~/bin/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py" && chmod 700 ~/bin/dropbox.py
+            source ~/.bashrc && source ~/.profile
+            rm -f ~/dropbox.tar.gz
             break
             ;;
         "5")
