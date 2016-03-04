@@ -160,7 +160,8 @@ showMenu ()
     echo "9"": Install Madsonic"
     echo "10"":Install Sickrage"
     echo "11"":Install Subsonic"
-    echo "12"": Quit"
+    echo "12"":Install Syncthing"
+    echo "13"": Quit"
 }
 #
 ###########################
@@ -434,6 +435,11 @@ do
             break
             ;;
         "12")
+            echo "Starting Syncthing Setup"
+            https://www.feralhosting.com/faq/view?question=285
+            break
+            ;;
+        "13")
             echo "Quit"
             exit
             break
