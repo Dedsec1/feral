@@ -159,9 +159,10 @@ showMenu ()
     echo "8"": Install Plex"
     echo "9"": Install Madsonic"
     echo "10"":Install Sickrage"
-    echo "11"":Install Subsonic"
-    echo "12"":Install Syncthing"
-    echo "13"": Quit"
+    echo "11'":Install Sonarr"
+    echo "12"":Install Subsonic"
+    echo "13"":Install Syncthing"
+    echo "14"": Quit"
 }
 #
 ###########################
@@ -435,11 +436,32 @@ do
             break
             ;;
         "12")
+            echo "Starting Sonarr Setup"
+            mkdir -p ~/bin && bash
+            wget -qO ~/libtool.tar.gz http://ftpmirror.gnu.org/libtool/libtool-2.4.6.tar.gz
+            tar xf ~/libtool.tar.gz && cd ~/libtool-2.4.6
+            ./configure --prefix=$HOME && make && make install && cd && rm -rf libtool{-2.4.6,.tar.gz}
+            wget -qO ~/mono.tar.gz http://download.mono-project.com/sources/mono/mono-4.2.1.102.tar.bz2
+            tar xf ~/mono.tar.gz && cd ~/mono-4.2.1
+            ./autogen.sh --prefix="$HOME" && make get-monolite-latest
+            make && make install && cd && rm -rf mono{-4.2.1,.tar.gz}
+            wget -qO ~/NzbDrone.tar.gz http://update.sonarr.tv/v2/master/mono/NzbDrone.master.tar.gz
+            tar xf ~/NzbDrone.tar.gz
+            mkdir -p ~/.config/NzbDrone
+            wget -qO ~/.config/NzbDrone/config.xml http://git.io/vcCvh
+            sed -i 's|<Port>8989</Port>|<Port>'$(shuf -i 10001-32001 -n 1)'</Port>|g' ~/.config/NzbDrone/config.xml
+            sed -i 's|<UrlBase></UrlBase>|<UrlBase>/'"$(whoami)"'/sonarr</UrlBase>|g' ~/.config/NzbDrone/config.xml
+            echo -e "\nhttp://$(hostname -f):$(sed -rn 's|(.*)<Port>(.*)</Port>|\2|p' ~/.config/NzbDrone/config.xml)/$(whoami)/sonarr/\n"
+            screen -dmS sonarr mono --debug ~/NzbDrone/NzbDrone.exe
+            screen -r sonarr
+            break
+            ;;
+        "13")
             echo "Starting Syncthing Setup"
             https://www.feralhosting.com/faq/view?question=285
             break
             ;;
-        "13")
+        "14")
             echo "Quit"
             exit
             break
