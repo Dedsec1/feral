@@ -359,13 +359,8 @@ do
             break
             ;;
         "4")
-            echo "Starting Dropbox Setup"
-             wget -O ~/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py"
-             chmod 755 ~/dropbox.py
-             wget -O dropbox.tar.gz "http://www.dropbox.com/download/?plat=lnx.x86_64"
-             tar -xvzf dropbox.tar.gz
-             chmod 777 ~/.dropbox-dist/dropboxd
-             ~/.dropbox-dist/dropboxd
+             echo "Starting Dropbox Setup"
+             wget -qO ~/dropbox.sh https://raw.githubusercontent.com/Dedsec1/feral/master/dropbox.sh ~/dropbox.sh
             break
             ;;
         "5")
