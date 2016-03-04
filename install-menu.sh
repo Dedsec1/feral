@@ -425,6 +425,8 @@ do
             mkdir -p ~/bin && bash
             git clone https://github.com/mcrapet/plowshare.git ~/.plowshare-source && cd ~/.plowshare-source
             make install PREFIX=$HOME && cd && rm -rf .plowshare-source
+            break
+            ;;
         "10")
             echo "Starting Madsonic Setup"
             wget -qO ~/install.madsonic http://git.io/Eq97bg && bash ~/install.madsonic
