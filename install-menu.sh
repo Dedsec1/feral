@@ -337,7 +337,6 @@ do
             echo
             wget -qO ~/install.autodl.sh http://git.io/oTUCMg && bash ~/install.autodl.sh
             break
-            ;;
         "2")
             ##
             echo "Installing Bittorrent Sync on your slot"
