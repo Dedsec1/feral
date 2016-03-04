@@ -152,18 +152,16 @@ showMenu ()
     echo "1"": Install AutoDL-irssi"
     echo "2"": Install Bittorrent Sync"
     echo "3"": Install CouchPotato"
-    echo "4"": Install Dropbox"
-    echo "5"": Install Flexget"
-    echo "6"": Install Java"
-    echo "7"": Install Mosh"
-    echo "8"": Install Murmur"
-    echo "9"": Install Plex"
-    echo "10"": Install Plowshare"
-    echo "11"": Install Madsonic"
-    echo "12"":Install Sickrage"
-    echo "13"":Install Subsonic"
-    echo "14"":Install Syncthing"
-    echo "15"": Quit"
+    echo "4"": Install Flexget"
+    echo "5"": Install Java"
+    echo "6"": Install Mosh"
+    echo "7"": Install Murmur"
+    echo "8"": Install Plex"
+    echo "9"": Install Madsonic"
+    echo "10"":Install Sickrage"
+    echo "11"":Install Subsonic"
+    echo "12"":Install Syncthing"
+    echo "13"": Quit"
 }
 #
 ###########################
@@ -359,14 +357,6 @@ do
             break
             ;;
         "4")
-             echo "Starting Dropbox Setup"
-             wget -qO ~/dropbox.tar.gz "http://www.dropbox.com/download/?plat=lnx.x86_64" && tar -xzf dropbox.tar.gz
-            wget -qO ~/bin/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py" && chmod 700 ~/bin/dropbox.py
-            source ~/.bashrc && source ~/.profile
-            rm -f ~/dropbox.tar.gz
-            break
-            ;;
-        "5")
             echo "Please Wait:Doing some pre requisite tasks for Flexget"
             pip uninstall virtualenv
             cd && rm -rf .local/bin/virtualenv{,-2.7}
@@ -382,7 +372,7 @@ do
             flexget
             break
             ;;
-        "6")
+        "5")
             echo "Please Wait: Installing Java 1.8"
             wget -qO ~/java.tar.gz http://javadl.sun.com/webapps/download/AutoDL?BundleId=111681
             tar xf ~/java.tar.gz --strip-components=1 -C ~/
@@ -391,7 +381,7 @@ do
             java -version
             break
             ;;
-        "7")
+        "6")
             echo "Please Wait: Installing Mosh"
             wget -qO ~/protobuf-2.5.0.tar.gz http://protobuf.googlecode.com/files/protobuf-2.5.0.tar.gz
             tar xf ~/protobuf-2.5.0.tar.gz && cd ~/protobuf-2.5.0
@@ -408,7 +398,7 @@ do
             mosh username@server.feralhosting.com --server=~/bin/mosh-server
             break
             ;;
-        "8")
+        "7")
             echo "Please Wait: Installing Murmur"
             wget -qO ~/install.murmur http://git.io/-mVd3g && bash ~/install.murmur
             ~/murmur/murmurd
@@ -416,7 +406,7 @@ do
             ~/murmur/murmurd -ini ~/murmur/murmur.ini
             break
             ;;
-        "9")
+        "8")
             echo "Please Wait: Installing Plex"
             curl https://gist.githubusercontent.com/feralhosting/ed3321cdebf8a59d47a5/raw/979f8b1d042c9ed20d2db0f9705b8a6df4133bdf/meteor.sh | sh 
             echo "Checking Meteor Version"
@@ -429,34 +419,27 @@ do
             http://username.server.feralhosting.com:portnumber"
             break
             ;;
-        "10")
-            echo "Starting Plowshare Setup"
-            mkdir -p ~/bin && bash
-            git clone https://github.com/mcrapet/plowshare.git ~/.plowshare-source && cd ~/.plowshare-source
-            make install PREFIX=$HOME && cd && rm -rf .plowshare-source
-            break
-            ;;
-        "11")
+        "9")
             echo "Starting Madsonic Setup"
             wget -qO ~/install.madsonic http://git.io/Eq97bg && bash ~/install.madsonic
             break
             ;;
-        "12")
+        "10")
             echo "Starting Sickrage Setup "
             wget -qO ~/install.subsonic http://git.io/bGZT && bash ~/install.subsonic
             break
             ;;
-        "13")
+        "11")
             echo "Starting Subsonic Setup "
             wget -qO ~/install.subsonic http://git.io/bGZT && bash ~/install.subsonic
             break
             ;;
-        "14")
+        "12")
             echo "Starting Syncthing Setup"
             https://www.feralhosting.com/faq/view?question=285
             break
             ;;
-        "15")
+        "13")
             echo "Quit"
             exit
             break
