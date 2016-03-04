@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 ############################
-##### Basic Info Start #########
+##### Basic Info Start ##################
 ##############################
 #
 # Script Author: Dedsec
