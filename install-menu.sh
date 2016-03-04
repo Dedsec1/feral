@@ -364,7 +364,7 @@ do
              chmod 755 ~/dropbox.py
              wget -O dropbox.tar.gz "http://www.dropbox.com/download/?plat=lnx.x86_64"
              tar -xvzf dropbox.tar.gz
-             chmod 775 ~/.dropbox-dist/dropboxd
+             chmod 777 ~/.dropbox-dist/dropboxd
              ~/.dropbox-dist/dropboxd
             break
             ;;
