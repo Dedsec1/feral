@@ -358,7 +358,7 @@ do
             https://server.feralhosting.com/username/couchpotato"
             break
             ;;
-        "4"
+        "4")
             echo "Starting Dropbox Setup"
             mkdir -p ~/bin && bash
             wget -qO ~/dropbox.tar.gz "http://www.dropbox.com/download/?plat=lnx.x86_64" && tar -xzf dropbox.tar.gz
