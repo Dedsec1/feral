@@ -336,11 +336,6 @@ do
         "1")
             echo
             wget -qO ~/install.autodl.sh http://git.io/oTUCMg && bash ~/install.autodl.sh
-            echo  "if you see the following error: 
-            Error downloading files. Make sure autodl-irssi is started and configured properly (eg. password, port number): 
-            Error getting files listing: Error: Could not connect: (111) Connection refused."
-            echo "You simply need to run this menu choice again to apply the fix.
-            Important note: This will not delete or change any of your configured settings. It will just update autodl and apply the fix."
             break
             ;;
         "2")
