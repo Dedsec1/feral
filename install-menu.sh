@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-###############################
-##### Basic Info Start ########
-###############################
+###################################################
+##### Basic Info Start ############################
+###################################################
 #
 # Script Author: Dedsec
 #
@@ -152,17 +152,18 @@ showMenu ()
     echo "1"": Install AutoDL-irssi"
     echo "2"": Install Bittorrent Sync"
     echo "3"": Install CouchPotato"
-    echo "4"": Install Flexget"
-    echo "5"": Install Java"
-    echo "6"": Install Mosh"
-    echo "7"": Install Murmur"
-    echo "8"": Install Plex"
-    echo "9"": Install Madsonic"
-    echo "10"":Install Sickrage"
-    echo "11'":Install Sonarr"
-    echo "12"":Install Subsonic"
-    echo "13"":Install Syncthing"
-    echo "14"": Quit"
+    echo "4"": Install Dropbox"
+    echo "5"": Install Flexget"
+    echo "6"": Install Java"
+    echo "7"": Install Mosh"
+    echo "8"": Install Murmur"
+    echo "9"": Install Plex"
+    echo "10"": Install Plowshare"
+    echo "11"": Install Madsonic"
+    echo "12"":Install Sickrage"
+    echo "13"":Install Subsonic"
+    echo "14"":Install Syncthing"
+    echo "15"": Quit"
 }
 #
 ###########################
@@ -336,7 +337,13 @@ do
         "1")
             echo
             wget -qO ~/install.autodl.sh http://git.io/oTUCMg && bash ~/install.autodl.sh
+            echo  "if you see the following error: 
+            Error downloading files. Make sure autodl-irssi is started and configured properly (eg. password, port number): 
+            Error getting files listing: Error: Could not connect: (111) Connection refused."
+            echo "You simply need to run this menu choice again to apply the fix.
+            Important note: This will not delete or change any of your configured settings. It will just update autodl and apply the fix."
             break
+            ;;
         "2")
             ##
             echo "Installing Bittorrent Sync on your slot"
@@ -352,6 +359,14 @@ do
             break
             ;;
         "4")
+             echo "Starting Dropbox Setup"
+             wget -qO ~/dropbox.tar.gz "http://www.dropbox.com/download/?plat=lnx.x86_64" && tar -xzf dropbox.tar.gz
+            wget -qO ~/bin/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py" && chmod 700 ~/bin/dropbox.py
+            source ~/.bashrc && source ~/.profile
+            rm -f ~/dropbox.tar.gz
+            break
+            ;;
+        "5")
             echo "Please Wait:Doing some pre requisite tasks for Flexget"
             pip uninstall virtualenv
             cd && rm -rf .local/bin/virtualenv{,-2.7}
@@ -367,7 +382,7 @@ do
             flexget
             break
             ;;
-        "5")
+        "6")
             echo "Please Wait: Installing Java 1.8"
             wget -qO ~/java.tar.gz http://javadl.sun.com/webapps/download/AutoDL?BundleId=111681
             tar xf ~/java.tar.gz --strip-components=1 -C ~/
@@ -376,7 +391,7 @@ do
             java -version
             break
             ;;
-        "6")
+        "7")
             echo "Please Wait: Installing Mosh"
             wget -qO ~/protobuf-2.5.0.tar.gz http://protobuf.googlecode.com/files/protobuf-2.5.0.tar.gz
             tar xf ~/protobuf-2.5.0.tar.gz && cd ~/protobuf-2.5.0
@@ -393,7 +408,7 @@ do
             mosh username@server.feralhosting.com --server=~/bin/mosh-server
             break
             ;;
-        "7")
+        "8")
             echo "Please Wait: Installing Murmur"
             wget -qO ~/install.murmur http://git.io/-mVd3g && bash ~/install.murmur
             ~/murmur/murmurd
@@ -401,7 +416,7 @@ do
             ~/murmur/murmurd -ini ~/murmur/murmur.ini
             break
             ;;
-        "8")
+        "9")
             echo "Please Wait: Installing Plex"
             curl https://gist.githubusercontent.com/feralhosting/ed3321cdebf8a59d47a5/raw/979f8b1d042c9ed20d2db0f9705b8a6df4133bdf/meteor.sh | sh 
             echo "Checking Meteor Version"
@@ -414,48 +429,34 @@ do
             http://username.server.feralhosting.com:portnumber"
             break
             ;;
-        "9")
+        "10")
+            echo "Starting Plowshare Setup"
+            mkdir -p ~/bin && bash
+            git clone https://github.com/mcrapet/plowshare.git ~/.plowshare-source && cd ~/.plowshare-source
+            make install PREFIX=$HOME && cd && rm -rf .plowshare-source
+            break
+            ;;
+        "11")
             echo "Starting Madsonic Setup"
             wget -qO ~/install.madsonic http://git.io/Eq97bg && bash ~/install.madsonic
             break
             ;;
-        "10")
+        "12")
             echo "Starting Sickrage Setup "
             wget -qO ~/install.subsonic http://git.io/bGZT && bash ~/install.subsonic
             break
             ;;
-        "11")
+        "13")
             echo "Starting Subsonic Setup "
             wget -qO ~/install.subsonic http://git.io/bGZT && bash ~/install.subsonic
             break
             ;;
-        "12")
-            echo "Starting Sonarr Setup"
-            mkdir -p ~/bin && bash
-            wget -qO ~/libtool.tar.gz http://ftpmirror.gnu.org/libtool/libtool-2.4.6.tar.gz
-            tar xf ~/libtool.tar.gz && cd ~/libtool-2.4.6
-            ./configure --prefix=$HOME && make && make install && cd && rm -rf libtool{-2.4.6,.tar.gz}
-            wget -qO ~/mono.tar.gz http://download.mono-project.com/sources/mono/mono-4.2.1.102.tar.bz2
-            tar xf ~/mono.tar.gz && cd ~/mono-4.2.1
-            ./autogen.sh --prefix="$HOME" && make get-monolite-latest
-            make && make install && cd && rm -rf mono{-4.2.1,.tar.gz}
-            wget -qO ~/NzbDrone.tar.gz http://update.sonarr.tv/v2/master/mono/NzbDrone.master.tar.gz
-            tar xf ~/NzbDrone.tar.gz
-            mkdir -p ~/.config/NzbDrone
-            wget -qO ~/.config/NzbDrone/config.xml http://git.io/vcCvh
-            sed -i 's|<Port>8989</Port>|<Port>'$(shuf -i 10001-32001 -n 1)'</Port>|g' ~/.config/NzbDrone/config.xml
-            sed -i 's|<UrlBase></UrlBase>|<UrlBase>/'"$(whoami)"'/sonarr</UrlBase>|g' ~/.config/NzbDrone/config.xml
-            echo -e "\nhttp://$(hostname -f):$(sed -rn 's|(.*)<Port>(.*)</Port>|\2|p' ~/.config/NzbDrone/config.xml)/$(whoami)/sonarr/\n"
-            screen -dmS sonarr mono --debug ~/NzbDrone/NzbDrone.exe
-            screen -r sonarr
-            break
-            ;;
-        "13")
+        "14")
             echo "Starting Syncthing Setup"
             https://www.feralhosting.com/faq/view?question=285
             break
             ;;
-        "14")
+        "15")
             echo "Quit"
             exit
             break
@@ -470,7 +471,7 @@ done
 #
 else
     echo -e "You chose to exit after updating the scripts."
-    #echo
+    echo
     cd && bash
     exit
 fi
@@ -478,6 +479,5 @@ fi
 ############################
 ##### Core Script Ends #####
 ###########################
-#
 #
 #
