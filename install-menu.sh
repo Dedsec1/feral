@@ -158,9 +158,10 @@ showMenu ()
     echo "7"": Install Murmur"
     echo "8"": Install Plex"
     echo "9"": Install Madsonic"
-    echo "10"":Install Sickrage"
-    echo "11"":Install Subsonic"
-    echo "12"": Quit"
+    echo "10"":Install Proftpd"
+    echo "11"":Install Sickrage"
+    echo "12"":Install Subsonic"
+    echo "13"": Quit"
 }
 #
 ###########################
@@ -424,16 +425,21 @@ do
             break
             ;;
         "10")
+            echo "Starting Proftpd Setup"
+            wget -qO ~/install.proftpd http://git.io/nQJBxw && bash ~/install.proftpd
+            break
+            ;;
+        "11")
             echo "Starting Sickrage Setup "
             wget -qO ~/install.subsonic http://git.io/bGZT && bash ~/install.subsonic
             break
             ;;
-        "11")
+        "12")
             echo "Starting Subsonic Setup "
             wget -qO ~/install.subsonic http://git.io/bGZT && bash ~/install.subsonic
             break
             ;;
-        "12")
+        "13")
             echo "Quit"
             exit
             break
