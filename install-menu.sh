@@ -156,12 +156,13 @@ showMenu ()
     echo "5"": Install Java"
     echo "6"": Install Mosh"
     echo "7"": Install Murmur"
-    echo "8"": Install Plex"
-    echo "9"": Install Madsonic"
-    echo "10"":Install Proftpd"
-    echo "11"":Install Sickrage"
-    echo "12"":Install Subsonic"
-    echo "13"": Quit"
+    echo "8"": Install Madsonic"
+    echo "9"": Install Owncloud"
+    echo "10"": Install Plex"
+    echo "11"":Install Proftpd"
+    echo "12"":Install Sickrage"
+    echo "13"":Install Subsonic"
+    echo "14"": Quit"
 }
 #
 ###########################
@@ -407,6 +408,16 @@ do
             break
             ;;
         "8")
+            echo "Starting Madsonic Setup"
+            wget -qO ~/install.madsonic http://git.io/Eq97bg && bash ~/install.madsonic
+            break
+            ;;
+        "9")
+            echo "Starting Owncloud Setup"
+            wget -P ~/www/$(whoami).$(hostname -f)/public_html/ https://download.owncloud.com/download/community/setup-owncloud.php
+            echo -e " Owncloud install has finished, Owncloud Configuration wizard is accessible at:" "\033[32m""https://$(hostname -f)/$(whoami)/setup-owncloud.php""\e[0m"
+            
+        "10")
             echo "Please Wait: Installing Plex"
             curl https://gist.githubusercontent.com/feralhosting/ed3321cdebf8a59d47a5/raw/979f8b1d042c9ed20d2db0f9705b8a6df4133bdf/meteor.sh | sh 
             echo "Checking Meteor Version"
@@ -418,28 +429,23 @@ do
             echo"Press CTRL + A + D on your keyboard to detach screen. And Plex Requests is will be installed and running on this address : 
             http://username.server.feralhosting.com:portnumber"
             break
-            ;;
-        "9")
-            echo "Starting Madsonic Setup"
-            wget -qO ~/install.madsonic http://git.io/Eq97bg && bash ~/install.madsonic
-            break
-            ;;
-        "10")
+            ;;    
+        "11")
             echo "Starting Proftpd Setup"
             wget -qO ~/install.proftpd http://git.io/nQJBxw && bash ~/install.proftpd
             break
             ;;
-        "11")
+        "12")
             echo "Starting Sickrage Setup "
             wget -qO ~/install.subsonic http://git.io/bGZT && bash ~/install.subsonic
             break
             ;;
-        "12")
+        "13")
             echo "Starting Subsonic Setup "
             wget -qO ~/install.subsonic http://git.io/bGZT && bash ~/install.subsonic
             break
             ;;
-        "13")
+        "14")
             echo "Quit"
             exit
             break
