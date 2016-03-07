@@ -416,7 +416,7 @@ do
             echo "Starting Owncloud Setup"
             wget -P ~/www/$(whoami).$(hostname -f)/public_html/ https://download.owncloud.com/download/community/setup-owncloud.php
             echo -e " Owncloud install has finished, Owncloud Configuration wizard is accessible at:" "\033[32m""https://$(hostname -f)/$(whoami)/setup-owncloud.php""\e[0m"
-            
+            ;;
         "10")
             echo "Please Wait: Installing Plex"
             curl https://gist.githubusercontent.com/feralhosting/ed3321cdebf8a59d47a5/raw/979f8b1d042c9ed20d2db0f9705b8a6df4133bdf/meteor.sh | sh 
