@@ -415,7 +415,7 @@ do
         "9")
             echo "Starting Owncloud Setup"
             wget -P ~/www/$(whoami).$(hostname -f)/public_html/ https://download.owncloud.com/download/community/setup-owncloud.php
-            echo -e " Owncloud install has finished, Owncloud Configuration wizard is accessible at:" "\033[32m""https://$(hostname -f)/$(whoami)/setup-owncloud.php""\e[0m"
+            echo -e " Owncloud install has finished downloading and has been copied, Please go to the URL to Setup Owncloud:" "\033[32m""https://$(hostname -f)/$(whoami)/setup-owncloud.php""\e[0m"
             break
             ;;
         "10")
