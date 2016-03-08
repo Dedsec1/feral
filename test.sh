@@ -109,6 +109,8 @@ do
                             ./configure --prefix=$HOME
                             make && make install
 			    cd && rm -rf nmap{-7.01,.tar.bz2}
+			    break
+			    ;;
 		"4")
 			echo "You chose to quit the script"
 			echo
