@@ -1,5 +1,4 @@
-#!/usr/bin/env bash
-
+#! /bin/bash
 WEBSITE=https://thehawken.org/fs/?s=0
 SUBJECT="$Feral Server might be down!"
 EMAILID="an@email.com"
