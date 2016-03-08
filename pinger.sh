@@ -10,4 +10,6 @@ VALUE="enceladus
 
 if [ $status -ne 100 -a "$STRING" = "$VALUE" ]
         echo "Website: $WEBSITE is down, status code: '$STATUS' - $(date)" | mail -s "$SUBJECT" $EMAILID
-fi
+break
+;;
+#
