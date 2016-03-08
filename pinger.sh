@@ -1,5 +1,7 @@
 #! /bin/bash
 
+############################################
+
 WEBSITE=https://thehawken.org/fs/?s=0
 SUBJECT="$Feral Server might be down!"
 EMAILID="an@email.com"
@@ -10,4 +12,4 @@ VALUE="enceladus
 
 if [ "$STATUS" != 200 ] && [ "$STRING" != "$VALUE" ]; then
         echo "Website: $WEBSITE is down, status code: '$STATUS' - $(date)" | mail -s "$SUBJECT" $EMAILID
-#
+
