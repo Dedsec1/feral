@@ -158,7 +158,7 @@ showMenu ()
     echo "7"": Install Murmur"
     echo "8"": Install Madsonic"
     echo "9"": Install Owncloud"
-    echo "10"": Install Plex"
+    echo "10"":Install Plex"
     echo "11"":Install Proftpd"
     echo "12"":Install Rapidleech"
     echo "13"":Install Sickrage"
