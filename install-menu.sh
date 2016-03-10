@@ -162,7 +162,8 @@ showMenu ()
     echo "11"":Install Proftpd"
     echo "12"":Install Sickrage"
     echo "13"":Install Subsonic"
-    echo "14"": Quit"
+    echo "14"":Install Syncthing"
+    echo "15"": Quit"
 }
 #
 ###########################
@@ -437,16 +438,21 @@ do
             break
             ;;
         "12")
-            echo "Starting Sickrage Setup "
+            echo "Starting Sickrage Setup"
             wget -qO ~/install.subsonic http://git.io/bGZT && bash ~/install.subsonic
             break
             ;;
         "13")
-            echo "Starting Subsonic Setup "
+            echo "Starting Subsonic Setup"
             wget -qO ~/install.subsonic http://git.io/bGZT && bash ~/install.subsonic
             break
             ;;
         "14")
+            echo "Starting Syncthing Setup"
+            wget -qO ~/install.syncthing http://git.io/-MNlxQ && bash ~/install.syncthing
+            break
+            ;;
+        "15")
             echo "Quit"
             exit
             break
