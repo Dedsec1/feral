@@ -160,10 +160,11 @@ showMenu ()
     echo "9"": Install Owncloud"
     echo "10"": Install Plex"
     echo "11"":Install Proftpd"
-    echo "12"":Install Sickrage"
-    echo "13"":Install Subsonic"
-    echo "14"":Install Syncthing"
-    echo "15"": Quit"
+    echo "12"":Install Rapidleech"
+    echo "13"":Install Sickrage"
+    echo "14"":Install Subsonic"
+    echo "15"":Install Syncthing"
+    echo "16"": Quit"
 }
 #
 ###########################
