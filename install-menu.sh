@@ -438,21 +438,26 @@ do
             break
             ;;
         "12")
+            echo "Starting Rapidleech Setup"
+            wget -qO ~/rapid.zip http://git.io/3nr6fw
+            unzip -qn ~/rapid.zip -d ~/www/$(whoami).$(hostname -f)/public_html/
+            echo -e "Rapidleech has been copied to your WWW directory, Please go to the URL to configure Rapidleech:" "\033[32m""http://$(whoami)/$(hostname -f)/rapidleech""\e[0m"
+        "13")
             echo "Starting Sickrage Setup"
             wget -qO ~/install.subsonic http://git.io/bGZT && bash ~/install.subsonic
             break
             ;;
-        "13")
+        "14")
             echo "Starting Subsonic Setup"
             wget -qO ~/install.subsonic http://git.io/bGZT && bash ~/install.subsonic
             break
             ;;
-        "14")
+        "15")
             echo "Starting Syncthing Setup"
             wget -qO ~/install.syncthing http://git.io/-MNlxQ && bash ~/install.syncthing
             break
             ;;
-        "15")
+        "16")
             echo "Quit"
             exit
             break
