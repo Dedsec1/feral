@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-string="Feeling Lucky"
+string="Feeling"
 if curl -s "http://www.google.com" | grep -q "$string"; then
     echo "'$string' found"
 else
