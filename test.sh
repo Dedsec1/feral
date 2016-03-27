@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-wget -qO ~/curl.tar.gz http://curl.haxx.se/download/curl-7.41.0.tar.gz
-tar xf ~/curl.tar.gz && cd ~/curl-7.41.0
-./configure --prefix="$"HOME
-make && make install
-cd && rm -rf curl{-7.41.0,.tar.gz}
-#
+string="foo bar foo bar"
+if curl -s "http://www.google.com" | grep -q "$string"; then
+    echo "'$string' found"
+else
+    echo "'$string' not found"
+fi
