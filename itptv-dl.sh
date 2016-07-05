@@ -68,7 +68,7 @@ fi
 scriptversion="2.5"
 #
 # Script name goes here. Please prefix with install.
-scriptname="ITPro.tv Downloader"
+scriptname="itptv-dl"
 #
 # Author name goes here.
 scriptauthor="Dedsec"
