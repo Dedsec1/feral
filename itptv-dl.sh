@@ -65,10 +65,10 @@ fi
 ############################
 #
 # Script Version number is set here.
-scriptversion="2.2"
+scriptversion="2.5"
 #
 # Script name goes here. Please prefix with install.
-scriptname="Feral-Toolkit"
+scriptname="ITPro.tv Downloader"
 #
 # Author name goes here.
 scriptauthor="Dedsec"
@@ -77,7 +77,7 @@ scriptauthor="Dedsec"
 contributors="None credited"
 #
 # Set the http://git.io/ shortened URL for the raw github URL here:
-gitiourl="http://git.io/eJySww"
+gitiourl="https://git.io/vKIIL"
 #
 # Don't edit: This is the bash command shown when using the info option.
 gitiocommand="wget -qO ~/$scriptname $gitiourl && bash ~/$scriptname"
